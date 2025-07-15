@@ -1,5 +1,5 @@
 
-import { Scale, Bot, Library, Headphones, Home, FileText, Compass, Brain } from 'lucide-react';
+import { Scale, Bot, Library, Headphones, Home, FileText, Crown, Brain } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigation } from '@/context/NavigationContext';
 import { useAppFunctions } from '@/hooks/useAppFunctions';
@@ -54,10 +54,10 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
       function: 'Anotações'
     },
     {
-      id: 'explorar',
-      title: 'Explorar',
-      icon: Compass,
-      function: 'Explorar'
+      id: 'premium',
+      title: 'Premium',
+      icon: Crown,
+      function: 'Premium'
     }
   ];
 
