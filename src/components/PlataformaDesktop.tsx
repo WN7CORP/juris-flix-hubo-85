@@ -7,8 +7,9 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, User, Mail, CheckCircle, Download, Zap, Shield } from 'lucide-react';
+import { Loader2, User, Mail, CheckCircle, Download, Zap, Shield, Crown, Lock, Star } from 'lucide-react';
 import { DesktopPlatformCarousel } from '@/components/DesktopPlatformCarousel';
+import { PremiumRequired } from '@/components/PremiumRequired';
 const formSchema = z.object({
   nome: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
   email: z.string().email('Digite um email válido')
@@ -17,9 +18,11 @@ type FormData = z.infer<typeof formSchema>;
 export const PlataformaDesktop = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  
+  // Verificar se é usuário premium (simulando - na implementação real, você pegaria do Supabase/localStorage)
+  const isPremiumUser = false; // TODO: Implementar verificação real do status premium
+  
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -115,15 +118,70 @@ export const PlataformaDesktop = () => {
         </Card>
       </div>;
   }
+  // Se não for usuário premium, mostrar tela de upgrade
+  if (!isPremiumUser) {
+    return (
+      <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8 py-[21px]">
+        {/* Carrossel de imagens da plataforma */}
+        <div className="mb-12">
+          <DesktopPlatformCarousel />
+        </div>
+
+        {/* Aviso Premium */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 text-amber-600 dark:text-amber-400 px-6 py-3 rounded-full text-lg font-semibold mb-6">
+            <Crown className="w-6 h-6" />
+            <span>Recurso Premium Exclusivo</span>
+          </div>
+          
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-amber-500 to-yellow-600 bg-clip-text text-transparent">
+            Acesso à Plataforma Desktop
+          </h2>
+          
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Para receber o link de download da plataforma desktop completa, você precisa ser um usuário Premium.
+          </p>
+        </div>
+
+        {/* PremiumRequired Component */}
+        <PremiumRequired functionName="Plataforma Desktop" />
+      </div>
+    );
+  }
+  
   return <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8 py-[21px]">
       {/* Carrossel de imagens da plataforma */}
       <div className="mb-12">
         <DesktopPlatformCarousel />
       </div>
 
+      {/* Banner Premium */}
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <Crown className="w-4 h-4" />
+          <span>Usuário Premium</span>
+        </div>
+      </div>
+
       {/* Seção de benefícios */}
       <div className="grid md:grid-cols-3 gap-6 mb-12">
-        
+        <div className="text-center p-6 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 border-amber-200 dark:border-amber-800 backdrop-blur-sm rounded-2xl border animate-fade-in-up">
+          <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <Crown className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-lg mb-2 text-amber-600 dark:text-amber-400">Acesso Premium</h3>
+          <p className="text-sm text-muted-foreground">Funcionalidade exclusiva para usuários Premium</p>
+        </div>
+
+        <div style={{
+        animationDelay: '0.1s'
+      }} className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-border animate-fade-in-up">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <Shield className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-lg mb-2 text-blue-400">Sem Anúncios</h3>
+          <p className="text-sm text-muted-foreground">Experiência completa sem interrupções</p>
+        </div>
 
         <div style={{
         animationDelay: '0.2s'
@@ -134,24 +192,29 @@ export const PlataformaDesktop = () => {
           <h3 className="font-bold text-lg mb-2 text-purple-400">Acesso Imediato</h3>
           <p className="text-sm text-muted-foreground">Sem espera! Comece a usar assim que fizer o download</p>
         </div>
-
-        
       </div>
 
       {/* Formulário de cadastro */}
-      <Card className="border-0 bg-card/50 backdrop-blur-sm shadow-2xl">
+      <Card className="border-0 bg-gradient-to-br from-amber-500/5 to-yellow-500/5 border-amber-200 dark:border-amber-800 backdrop-blur-sm shadow-2xl">
         <CardHeader className="text-center pb-6 py-[12px]">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Crown className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+            <span className="bg-gradient-to-r from-amber-500 to-yellow-600 bg-clip-text text-transparent font-bold text-lg">
+              PREMIUM
+            </span>
+          </div>
+          
           <CardTitle className="gradient-text-legal text-3xl sm:text-4xl mb-4">
             Acesse a Versão Desktop Completa
           </CardTitle>
           <CardDescription className="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed text-muted-foreground">
-            Preencha os dados abaixo e receba o <strong className="text-primary">link da plataforma desktop</strong> diretamente no seu email. 
+            <strong className="text-amber-600 dark:text-amber-400">Usuário Premium:</strong> Preencha os dados abaixo e receba o <strong className="text-primary">link da plataforma desktop</strong> diretamente no seu email. 
             Acesso completo a todas as funcionalidades profissionais!
           </CardDescription>
           
           {/* Banner explicativo */}
-          <div className="mt-6 p-4 bg-primary/10 backdrop-blur-sm rounded-xl border border-primary/20">
-            <p className="text-sm font-medium text-primary flex items-center justify-center gap-2">
+          <div className="mt-6 p-4 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-xl border border-amber-200 dark:border-amber-800">
+            <p className="text-sm font-medium text-amber-600 dark:text-amber-400 flex items-center justify-center gap-2">
               <Mail className="w-4 h-4" />
               Você receberá um email com o link de download da plataforma
             </p>
@@ -189,22 +252,25 @@ export const PlataformaDesktop = () => {
                     </FormItem>} />
               </div>
 
-              <Button type="submit" className="w-full h-16 text-lg font-bold bg-gradient-to-r from-primary via-accent-legal to-primary hover:from-primary/90 hover:via-accent-legal/90 hover:to-primary/90 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl" disabled={isLoading}>
+              <Button type="submit" className="w-full h-16 text-lg font-bold bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0" disabled={isLoading}>
                 {isLoading ? <>
                     <Loader2 className="w-6 h-6 mr-3 animate-spin" />
                     Enviando para seu email...
                   </> : <>
-                    <Download className="w-6 h-6 mr-3" />
-                    Receber Link de Download por Email
+                    <Crown className="w-6 h-6 mr-3" />
+                    Receber Link Premium por Email
                   </>}
               </Button>
             </form>
           </Form>
 
-          <div className="mt-8 p-6 bg-muted/20 backdrop-blur-sm rounded-xl border border-border">
+          <div className="mt-8 p-6 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 backdrop-blur-sm rounded-xl border border-amber-200 dark:border-amber-800">
             <div className="text-center space-y-2">
+              <p className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+                👑 Acesso Premium Confirmado
+              </p>
               <p className="text-sm text-muted-foreground">
-                ✅ Ao se cadastrar, você receberá o link de acesso por email
+                ✅ Você receberá o link de acesso por email
               </p>
               
               <p className="text-sm text-muted-foreground">
