@@ -45,7 +45,6 @@ import {
   Sparkles
 } from 'lucide-react';
 
-// Array expandido de ícones únicos
 const availableIcons = [
   Scale, Bot, Library, Headphones, GitBranch, Monitor, Play, Folder, 
   Newspaper, Film, Brain, BookOpen, FileText, Search, GraduationCap, 
@@ -120,6 +119,10 @@ export const FeaturesGrid = () => {
     setCurrentFunction(funcao);
   };
 
+  const handleTikTokClick = () => {
+    window.open('https://www.tiktok.com/@direitobrabo', '_blank');
+  };
+
   const sortedFunctions = [...functions].sort((a, b) => a.id - b.id);
 
   if (loading) {
@@ -153,57 +156,64 @@ export const FeaturesGrid = () => {
   return (
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Botões destacados redesenhados com cores únicas e design estiloso */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 animate-slide-up-legal">
-          {/* Botão Loja - Design estiloso com azul vibrante */}
+        {/* Loja de Livros - Botão principal */}
+        <div className="flex justify-center mb-8 animate-slide-up-legal">
           <button
             onClick={() => setCurrentFunction('Loja')}
-            className="group relative overflow-hidden bg-gradient-to-r from-store-primary via-blue-500 to-store-secondary hover:from-blue-600 hover:via-blue-500 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-glow"
+            className="group relative overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700 text-white px-12 py-6 rounded-3xl font-bold text-xl shadow-2xl hover:shadow-violet-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[400px] justify-center"
           >
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-600/20 to-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            {/* Icon container with glow effect */}
-            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-              <ShoppingBag className="w-5 h-5 text-white drop-shadow-lg" />
+            <div className="relative z-10 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+              <ShoppingBag className="w-6 h-6 text-white drop-shadow-lg" />
             </div>
             
-            {/* Text with glow effect */}
             <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
-              Loja de Livros
+              Loja de Livros Físicos
             </span>
             
-            {/* Sparkle effects */}
-            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
+            <div className="absolute top-3 right-6 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute bottom-4 left-8 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
             
-            {/* Arrow indicator */}
-            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            <ArrowRight className="relative z-10 w-6 h-6 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
-          
-          {/* Botão Comunidade - Design estiloso com verde vibrante */}
+        </div>
+
+        {/* Botões Comunidade e TikTok - Lado a lado, menores */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 animate-slide-up-legal">
+          {/* Botão Comunidade */}
           <button
             onClick={() => setCurrentFunction('Comunidade')}
-            className="group relative overflow-hidden bg-gradient-to-r from-community-primary via-emerald-500 to-community-secondary hover:from-emerald-600 hover:via-emerald-500 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-community-glow"
+            className="group relative overflow-hidden bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-emerald-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-3 min-w-[240px] justify-center"
           >
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            {/* Icon container with glow effect */}
             <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
               <Users className="w-5 h-5 text-white drop-shadow-lg" />
             </div>
             
-            {/* Text with glow effect */}
             <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
               Comunidade VIP
             </span>
             
-            {/* Sparkle effects */}
-            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
+            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+          </button>
+          
+          {/* Botão TikTok */}
+          <button
+            onClick={handleTikTokClick}
+            className="group relative overflow-hidden bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 hover:from-pink-600 hover:via-rose-600 hover:to-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-pink-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-3 min-w-[240px] justify-center"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-600/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            {/* Arrow indicator */}
+            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+              <Music className="w-5 h-5 text-white drop-shadow-lg" />
+            </div>
+            
+            <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
+              TikTok
+            </span>
+            
             <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
         </div>
