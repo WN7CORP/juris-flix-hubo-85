@@ -67,10 +67,28 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'accent-legal': 'hsl(var(--accent-legal))', // Cor dourada consistente para o tema jurídico
+				'accent-legal': 'hsl(var(--accent-legal))',
 				'success': 'hsl(var(--success))',
 				'warning': 'hsl(var(--warning))',
-				'info': 'hsl(var(--info))'
+				'info': 'hsl(var(--info))',
+				// Cores específicas para botões estilosos
+				'shop': {
+					DEFAULT: 'hsl(270 80% 60%)',
+					foreground: 'hsl(0 0% 100%)',
+					hover: 'hsl(270 85% 55%)'
+				},
+				'community': {
+					DEFAULT: 'hsl(160 85% 50%)',
+					foreground: 'hsl(0 0% 100%)',
+					hover: 'hsl(160 90% 45%)'
+				},
+				'premium': {
+					DEFAULT: 'hsl(45 95% 60%)',
+					foreground: 'hsl(220 20% 12%)',
+					hover: 'hsl(45 100% 55%)',
+					light: 'hsl(45 95% 95%)',
+					dark: 'hsl(45 95% 20%)'
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -133,6 +151,14 @@ export default {
 				'slide-up': {
 					'0%': { transform: 'translateY(20px)', opacity: '0' },
 					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)' },
+					'50%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
 				}
 			},
 			animation: {
@@ -143,7 +169,9 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
 				'scale-out': 'scale-out 0.2s ease-out',
-				'slide-up': 'slide-up 0.3s ease-out'
+				'slide-up': 'slide-up 0.3s ease-out',
+				'glow': 'glow 2s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite'
 			}
 		}
 	},

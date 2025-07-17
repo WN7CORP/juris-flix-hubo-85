@@ -1,64 +1,61 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Legal Studies App - Professional Dark Gray Legal Theme */
+/* Legal Studies App - Enhanced Professional Dark Theme */
 
 @layer base {
   :root {
-    /* Modern Legal Theme - Vibrant yet Professional */
-    --background: 220 20% 12%;          /* Rich dark background */
-    --foreground: 210 25% 92%;          /* Bright readable text */
+    /* Enhanced Modern Legal Theme - More Vibrant and Professional */
+    --background: 215 25% 15%;           /* Richer dark background */
+    --foreground: 210 30% 95%;           /* Brighter readable text */
 
-    --card: 220 18% 16%;                /* Elevated card background */
-    --card-foreground: 210 25% 92%;
+    --card: 215 22% 18%;                 /* Enhanced card background */
+    --card-foreground: 210 30% 95%;
 
-    --popover: 220 18% 16%;
-    --popover-foreground: 210 25% 92%;
+    --popover: 215 22% 18%;
+    --popover-foreground: 210 30% 95%;
 
-    /* Enhanced golden accents - more vibrant */
-    --primary: 45 95% 60%;             /* Brighter professional gold */
-    --primary-foreground: 220 20% 12%;
+    /* Enhanced golden accents - more vibrant and professional */
+    --primary: 45 95% 65%;               /* Brighter professional gold */
+    --primary-foreground: 215 25% 15%;
 
-    --secondary: 220 18% 20%;          /* Enhanced secondary */
-    --secondary-foreground: 210 25% 90%;
+    --secondary: 215 20% 22%;            /* Enhanced secondary */
+    --secondary-foreground: 210 30% 92%;
 
-    --muted: 220 18% 18%;
-    --muted-foreground: 215 30% 75%;   /* Better contrast */
+    --muted: 215 20% 20%;
+    --muted-foreground: 210 35% 78%;     /* Better contrast */
 
-    --accent: 45 90% 65%;              /* Vibrant gold accent */
-    --accent-foreground: 220 20% 12%;
-    --accent-legal: 45 95% 60%;        /* Enhanced legal accent */
+    --accent: 45 90% 70%;                /* More vibrant gold accent */
+    --accent-foreground: 215 25% 15%;
+    --accent-legal: 45 95% 65%;          /* Enhanced legal accent */
 
-    --destructive: 0 88% 65%;          /* More vibrant destructive */
-    --destructive-foreground: 210 25% 96%;
+    --destructive: 0 85% 60%;            /* More vibrant destructive */
+    --destructive-foreground: 210 30% 98%;
 
-    --border: 220 18% 25%;             /* Better visible borders */
-    --input: 220 18% 20%;
-    --ring: 45 95% 60%;                /* Enhanced focus ring */
+    --border: 215 20% 28%;               /* Better visible borders */
+    --input: 215 20% 22%;
+    --ring: 45 95% 65%;                  /* Enhanced focus ring */
 
     --radius: 0.75rem;
 
     /* Enhanced sidebar colors */
-    --sidebar-background: 220 20% 14%;
-    --sidebar-foreground: 210 25% 90%;
-    --sidebar-primary: 45 95% 60%;
-    --sidebar-primary-foreground: 220 20% 12%;
-    --sidebar-accent: 220 18% 20%;
-    --sidebar-accent-foreground: 210 25% 90%;
-    --sidebar-border: 220 18% 25%;
-    --sidebar-ring: 45 95% 60%;
+    --sidebar-background: 215 25% 16%;
+    --sidebar-foreground: 210 30% 92%;
+    --sidebar-primary: 45 95% 65%;
+    --sidebar-primary-foreground: 215 25% 15%;
+    --sidebar-accent: 215 20% 22%;
+    --sidebar-accent-foreground: 210 30% 92%;
+    --sidebar-border: 215 20% 28%;
+    --sidebar-ring: 45 95% 65%;
 
-    /* Additional enhanced colors */
-    --background-deep: 220 25% 10%;    /* Deeper backgrounds */
-    --success: 142 75% 45%;            /* Success green */
-    --warning: 38 95% 55%;             /* Warning orange */
-    --info: 210 85% 55%;               /* Info blue */
+    /* Enhanced additional colors */
+    --background-deep: 215 30% 12%;      /* Deeper backgrounds */
+    --success: 142 70% 50%;              /* Success green */
+    --warning: 38 95% 60%;               /* Warning orange */
+    --info: 210 85% 60%;                 /* Info blue */
   }
 }
-
-/* ... keep existing code (base styles, scrollbar, mobile optimizations, etc) */
 
 @layer base {
   * {
@@ -77,20 +74,20 @@
 
   /* Enhanced scrollbar for professional look */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(26, 29, 35, 0.3);
+    background: hsl(215 25% 15%);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(212, 175, 55, 0.4);
-    border-radius: 3px;
+    background: hsl(45 95% 65% / 0.5);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(212, 175, 55, 0.6);
+    background: hsl(45 95% 65% / 0.7);
   }
 
   /* Hide scrollbar on mobile while keeping functionality */
@@ -111,108 +108,106 @@
   }
 }
 
-/* Professional depth effects - adjusted for lighter background */
+/* Enhanced Professional depth effects */
 .card-depth-1 {
   box-shadow: 
-    0 1px 3px rgba(0, 0, 0, 0.2),
-    0 1px 2px rgba(0, 0, 0, 0.15);
+    0 2px 4px hsl(215 30% 5% / 0.3),
+    0 1px 2px hsl(215 30% 5% / 0.2);
 }
 
 .card-depth-2 {
   box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.2),
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 6px 12px hsl(215 30% 5% / 0.3),
+    0 3px 6px hsl(215 30% 5% / 0.2),
+    inset 0 1px 0 hsl(210 30% 95% / 0.1);
 }
 
 .card-depth-3 {
   box-shadow: 
-    0 10px 15px rgba(0, 0, 0, 0.25),
-    0 4px 6px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 12px 24px hsl(215 30% 5% / 0.4),
+    0 6px 12px hsl(215 30% 5% / 0.3),
+    inset 0 1px 0 hsl(210 30% 95% / 0.1);
 }
 
-/* Professional glass effect for legal theme - adjusted */
+/* Professional glass effect for legal theme */
 .glass-effect-legal {
   backdrop-filter: blur(24px);
-  background: rgba(35, 36, 41, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: hsl(215 22% 18% / 0.9);
+  border: 1px solid hsl(45 95% 65% / 0.2);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 32px hsl(215 30% 5% / 0.4),
+    inset 0 1px 0 hsl(210 30% 95% / 0.1);
 }
 
-/* Enhanced floating effect - adjusted */
+/* Enhanced floating effect */
 .floating-effect-legal {
   backdrop-filter: blur(32px);
-  background: rgba(35, 36, 41, 0.95);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: hsl(215 22% 18% / 0.95);
+  border: 1px solid hsl(45 95% 65% / 0.25);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 20px 40px hsl(215 30% 5% / 0.5),
+    0 8px 16px hsl(215 30% 5% / 0.3),
+    inset 0 1px 0 hsl(210 30% 95% / 0.12);
 }
-
-/* ... keep existing code (gradient text styles, category gradients, hover effects, animations, button enhancements, mobile optimizations, touch-friendly elements, card hover effects, neumorphism, glassmorphism, safe area enhancements, line clamp utilities, focus states, section spacing) */
 
 /* Professional gradient for legal theme */
 .gradient-text-legal {
-  background: linear-gradient(135deg, #d4af37, #f4d03f, #d4af37);
+  background: linear-gradient(135deg, hsl(45 95% 65%), hsl(45 100% 75%), hsl(45 95% 65%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-legal-light {
-  background: linear-gradient(135deg, #f4d03f, #fff8dc, #f4d03f);
+  background: linear-gradient(135deg, hsl(45 100% 75%), hsl(45 100% 90%), hsl(45 100% 75%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Enhanced category-specific gradients - more vibrant */
+/* Enhanced category-specific gradients */
 .gradient-study {
-  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  background: linear-gradient(135deg, hsl(220 95% 50%), hsl(215 90% 60%), hsl(210 85% 70%));
 }
 
 .gradient-ai {
-  background: linear-gradient(135deg, #0c4a6e, #0891b2, #22d3ee);
+  background: linear-gradient(135deg, hsl(195 95% 40%), hsl(190 90% 50%), hsl(185 85% 60%));
 }
 
 .gradient-legal {
-  background: linear-gradient(135deg, #d97706, #f59e0b, #fbbf24);
+  background: linear-gradient(135deg, hsl(30 95% 50%), hsl(35 90% 60%), hsl(40 85% 70%));
 }
 
 .gradient-media {
-  background: linear-gradient(135deg, #6d28d9, #8b5cf6, #a78bfa);
+  background: linear-gradient(135deg, hsl(270 95% 50%), hsl(265 90% 60%), hsl(260 85% 70%));
 }
 
 .gradient-docs {
-  background: linear-gradient(135deg, #047857, #10b981, #34d399);
+  background: linear-gradient(135deg, hsl(150 95% 40%), hsl(155 90% 50%), hsl(160 85% 60%));
 }
 
 .gradient-premium {
-  background: linear-gradient(135deg, #be185d, #ec4899, #f472b6);
+  background: linear-gradient(135deg, hsl(320 95% 50%), hsl(315 90% 60%), hsl(310 85% 70%));
 }
 
 .gradient-security {
-  background: linear-gradient(135deg, #dc2626, #ef4444, #f87171);
+  background: linear-gradient(135deg, hsl(0 95% 50%), hsl(5 90% 60%), hsl(10 85% 70%));
 }
 
 /* Professional hover effects */
 .hover-lift-legal:hover {
   transform: translateY(-3px);
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.2),
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(212, 175, 55, 0.2);
+    0 20px 40px hsl(215 30% 5% / 0.3),
+    0 8px 16px hsl(215 30% 5% / 0.2),
+    0 0 0 1px hsl(45 95% 65% / 0.3);
 }
 
 .hover-glow-legal:hover {
   box-shadow: 
-    0 0 30px rgba(212, 175, 55, 0.3),
-    0 0 60px rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.4);
+    0 0 30px hsl(45 95% 65% / 0.4),
+    0 0 60px hsl(45 95% 65% / 0.2);
+  border-color: hsl(45 95% 65% / 0.5);
 }
 
 /* Enhanced Legal Animations */
