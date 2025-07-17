@@ -136,7 +136,15 @@ export const DesktopPlatformCarousel = () => {
 
         {/* Indicadores */}
         <div className="absolute bottom-20 left-6 sm:left-8 flex gap-2 z-20">
-          {desktopImages.map((_, index) => {})}
+          {desktopImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-primary scale-125' : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
+              }`}
+            />
+          ))}
         </div>
 
         {/* Contador */}

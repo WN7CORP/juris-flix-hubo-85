@@ -2533,6 +2533,24 @@ export type Database = {
         }
         Relationships: []
       }
+      TIKTOKLIVROS: {
+        Row: {
+          id: number
+          "LOJA DE ESTUDOS": string | null
+          TIKTOK: string | null
+        }
+        Insert: {
+          id?: number
+          "LOJA DE ESTUDOS"?: string | null
+          TIKTOK?: string | null
+        }
+        Update: {
+          id?: number
+          "LOJA DE ESTUDOS"?: string | null
+          TIKTOK?: string | null
+        }
+        Relationships: []
+      }
       user_achievements: {
         Row: {
           achieved_at: string | null
