@@ -15,11 +15,6 @@ export const Comunidade = () => {
       description: "Receba cupons especiais para livros, cursos e materiais jurídicos com descontos de até 50%."
     },
     {
-      icon: BookOpen,
-      title: "Livros Gratuitos",
-      description: "Acesso a uma biblioteca exclusiva com e-books jurídicos gratuitos e materiais de estudo premium."
-    },
-    {
       icon: MessageCircle,
       title: "Networking Profissional",
       description: "Conecte-se com advogados, estudantes e profissionais do direito de todo o Brasil."
@@ -57,39 +52,15 @@ export const Comunidade = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Junte-se a mais de <span className="font-bold text-emerald-600">5.000+ profissionais</span> do 
-            direito que já fazem parte da nossa comunidade exclusiva no WhatsApp.
+            Conecte-se com <span className="font-bold text-emerald-600">profissionais do direito</span> de 
+            todo o Brasil e tenha acesso a benefícios exclusivos.
           </p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 animate-slide-up-legal">
-          <Card className="text-center p-6 bg-gradient-to-br from-emerald-50 to-emerald-100/50 border-emerald-200">
-            <CardContent className="p-0">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">5.000+</div>
-              <div className="text-emerald-700 font-semibold">Membros Ativos</div>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100/50 border-blue-200">
-            <CardContent className="p-0">
-              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-blue-700 font-semibold">Suporte Disponível</div>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100/50 border-amber-200">
-            <CardContent className="p-0">
-              <div className="text-3xl font-bold text-amber-600 mb-2">100%</div>
-              <div className="text-amber-700 font-semibold">Gratuito</div>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Benefits Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12 gradient-text-legal">
-            Benefícios Exclusivos da Comunidade
+            Vantagens Exclusivas da Comunidade
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

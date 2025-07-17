@@ -154,33 +154,31 @@ export const FeaturesGrid = () => {
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Botões destacados: Loja e Comunidade */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-slide-up-legal">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 animate-slide-up-legal">
           <button
             onClick={() => setCurrentFunction('Loja')}
-            className="group relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white px-10 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-500 min-w-[280px]"
+            className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 min-w-[280px] justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            <div className="relative flex items-center justify-center gap-3">
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <div className="relative flex items-center gap-3">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
               </svg>
-              <span className="text-xl">📚 Loja de Livros Físicos</span>
+              <span>📚 Loja de Livros Físicos</span>
             </div>
-            <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
           </button>
           
           <button
             onClick={() => setCurrentFunction('Comunidade')}
-            className="group relative overflow-hidden bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 hover:from-emerald-600 hover:via-emerald-700 hover:to-emerald-800 text-white px-10 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-emerald-500/25 transform hover:scale-105 transition-all duration-500 min-w-[280px]"
+            className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 min-w-[280px] justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            <div className="relative flex items-center justify-center gap-3">
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <div className="relative flex items-center gap-3">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.003 3.003 0 0 0 17.14 6H16c-.8 0-1.54.37-2.03.96L12 9l-1.97-2.04A2.995 2.995 0 0 0 8 6H6.86c-1.31 0-2.47.83-2.82 2.37L1.5 16H4v6h4v-6h2.5l1.5-1.5L13.5 16H16v6h4z"/>
               </svg>
-              <span className="text-xl">👥 Comunidade Exclusiva</span>
+              <span>👥 Comunidade Exclusiva</span>
             </div>
-            <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
           </button>
         </div>
 
