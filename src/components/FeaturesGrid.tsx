@@ -154,30 +154,34 @@ export const FeaturesGrid = () => {
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Botões destacados: Loja e Comunidade */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 animate-slide-up-legal">
-          <a
-            href="https://preview--barba-growth-journey-76.lovable.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-slide-up-legal">
+          <button
+            onClick={() => setCurrentFunction('Loja')}
+            className="group relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 text-white px-10 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-500 min-w-[280px]"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
-            </svg>
-            🏪 Loja de Livros Físicos
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+            <div className="relative flex items-center justify-center gap-3">
+              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
+              </svg>
+              <span className="text-xl">📚 Loja de Livros Físicos</span>
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+          </button>
           
-          <a
-            href="https://chat.whatsapp.com/DKlKgHsjHZ97OKUDxEpT6w?mode=r_t"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          <button
+            onClick={() => setCurrentFunction('Comunidade')}
+            className="group relative overflow-hidden bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 hover:from-emerald-600 hover:via-emerald-700 hover:to-emerald-800 text-white px-10 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-emerald-500/25 transform hover:scale-105 transition-all duration-500 min-w-[280px]"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12C2 13.54 2.38 14.99 3.06 16.26L2 22L7.74 20.94C9.01 21.62 10.46 22 12 22C17.52 22 22 17.52 22 12S17.52 2 12 2ZM17.25 15.3C17.01 15.95 16.16 16.48 15.38 16.67C14.84 16.8 14.15 16.9 12 16C9.18 14.83 7.33 11.83 7.17 11.63C7.03 11.43 6 10.21 6 8.95C6 7.69 6.7 7.08 6.97 6.81C7.24 6.54 7.6 6.45 7.8 6.45C7.9 6.45 8 6.45 8.08 6.46C8.35 6.47 8.49 6.49 8.66 6.87C8.85 7.29 9.27 8.19 9.31 8.29C9.35 8.39 9.39 8.51 9.31 8.67C9.23 8.83 9.19 8.93 9.05 9.09C8.91 9.25 8.75 9.43 8.63 9.55C8.49 9.69 8.35 9.85 8.51 10.11C8.67 10.37 9.26 11.4 10.14 12.2C11.28 13.24 12.21 13.57 12.51 13.71C12.81 13.85 12.97 13.81 13.13 13.63C13.29 13.45 13.67 13.01 13.85 12.75C14.03 12.49 14.21 12.53 14.47 12.63C14.73 12.73 15.63 13.21 15.93 13.37C16.23 13.53 16.43 13.61 16.47 13.73C16.51 13.85 16.51 14.27 17.25 15.3Z"/>
-            </svg>
-            👥 Comunidade Exclusiva
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+            <div className="relative flex items-center justify-center gap-3">
+              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.003 3.003 0 0 0 17.14 6H16c-.8 0-1.54.37-2.03.96L12 9l-1.97-2.04A2.995 2.995 0 0 0 8 6H6.86c-1.31 0-2.47.83-2.82 2.37L1.5 16H4v6h4v-6h2.5l1.5-1.5L13.5 16H16v6h4z"/>
+              </svg>
+              <span className="text-xl">👥 Comunidade Exclusiva</span>
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+          </button>
         </div>
 
         <div className="text-center mb-8 sm:mb-12 animate-slide-up-legal">

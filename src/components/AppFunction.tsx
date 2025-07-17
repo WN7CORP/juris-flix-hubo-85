@@ -13,6 +13,8 @@ import { Premium } from '@/components/Premium';
 import { PremiumRequired } from '@/components/PremiumRequired';
 import { AssistenteIA } from '@/components/AssistenteIA';
 import { Suporte } from '@/components/Suporte';
+import { Loja } from '@/components/Loja';
+import { Comunidade } from '@/components/Comunidade';
 import { useEffect, useState } from 'react';
 
 export const AppFunction = () => {
@@ -62,6 +64,10 @@ export const AppFunction = () => {
         return <Explorar />;
       case 'Premium':
         return <Premium />;
+      case 'Loja':
+        return <Loja />;
+      case 'Comunidade':
+        return <Comunidade />;
       case 'Assistente IA Jurídica':
       case 'Assistente IA':
         return <AssistenteIA />;

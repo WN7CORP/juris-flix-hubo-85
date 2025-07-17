@@ -30,10 +30,10 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
       function: null
     },
     {
-      id: 'vade-mecum',
-      title: 'Vade Mecum',
+      id: 'loja',
+      title: 'Loja',
       icon: Scale,
-      function: findFunction('vade')?.funcao || 'Vade Mecum'
+      function: 'Loja'
     },
     {
       id: 'audio-aulas',
