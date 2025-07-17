@@ -65,11 +65,7 @@ export const AppFunction = () => {
       case 'Premium':
         return <Premium />;
       case 'Loja':
-        return (
-          <div className="fixed inset-0 w-full h-full">
-            <Loja />
-          </div>
-        );
+        return <Loja />;
       case 'Comunidade':
         return <Comunidade />;
       case 'Assistente IA Jurídica':
@@ -104,7 +100,7 @@ export const AppFunction = () => {
 
   // Se há um componente específico, renderizar com layout completo
   if (specificComponent) {
-    // Para a Loja, renderizar sem header e usar o layout full-screen
+    // Para a Loja, renderizar sem wrapper adicional pois já tem seu próprio layout
     if (currentFunction === 'Loja') {
       return specificComponent;
     }

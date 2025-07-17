@@ -67,7 +67,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'accent-legal': '#dc2626' // Cor vermelha consistente para o tema jurídico
+				'accent-legal': 'hsl(var(--accent-legal))', // Cor dourada consistente para o tema jurídico
+				'success': 'hsl(var(--success))',
+				'warning': 'hsl(var(--warning))',
+				'info': 'hsl(var(--info))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -153,32 +153,30 @@ export const FeaturesGrid = () => {
   return (
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Botões destacados: Loja e Comunidade */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 animate-slide-up-legal">
+        {/* Botões destacados minimalistas: Loja e Comunidade */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-12 animate-slide-up-legal">
           <button
             onClick={() => setCurrentFunction('Loja')}
-            className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 min-w-[280px] justify-center"
+            className="group relative bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 text-foreground px-6 py-3 rounded-xl font-medium text-base shadow-lg hover:shadow-primary/20 transform hover:scale-[1.02] transition-all duration-300 flex items-center gap-3 min-w-[240px] justify-center hover:bg-card/95"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <div className="relative flex items-center gap-3">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
+            <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
               </svg>
-              <span>📚 Loja de Livros Físicos</span>
             </div>
+            <span>Loja</span>
           </button>
           
           <button
             onClick={() => setCurrentFunction('Comunidade')}
-            className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105 transition-all duration-300 flex items-center gap-3 min-w-[280px] justify-center"
+            className="group relative bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 text-foreground px-6 py-3 rounded-xl font-medium text-base shadow-lg hover:shadow-primary/20 transform hover:scale-[1.02] transition-all duration-300 flex items-center gap-3 min-w-[240px] justify-center hover:bg-card/95"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <div className="relative flex items-center gap-3">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.003 3.003 0 0 0 17.14 6H16c-.8 0-1.54.37-2.03.96L12 9l-1.97-2.04A2.995 2.995 0 0 0 8 6H6.86c-1.31 0-2.47.83-2.82 2.37L1.5 16H4v6h4v-6h2.5l1.5-1.5L13.5 16H16v6h4z"/>
+            <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
+              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13 3V7H9S7 9 7 9V14H5V22H9V18H11V22H15V16H13V11H15L21 9Z"/>
               </svg>
-              <span>👥 Comunidade Exclusiva</span>
             </div>
+            <span>Comunidade</span>
           </button>
         </div>
 

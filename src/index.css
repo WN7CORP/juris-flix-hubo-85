@@ -7,51 +7,54 @@
 
 @layer base {
   :root {
-    /* Dark Gray Legal Theme - Main Colors - Softened for better readability */
-    --background: 220 15% 10%;          /* Lighter dark gray (#1a1b20) */
-    --foreground: 210 20% 90%;          /* Slightly softer light gray text */
+    /* Modern Legal Theme - Vibrant yet Professional */
+    --background: 220 20% 12%;          /* Rich dark background */
+    --foreground: 210 25% 92%;          /* Bright readable text */
 
-    --card: 220 15% 14%;                /* Lighter dark gray cards (#232429) */
-    --card-foreground: 210 20% 90%;
+    --card: 220 18% 16%;                /* Elevated card background */
+    --card-foreground: 210 25% 92%;
 
-    --popover: 220 15% 14%;
-    --popover-foreground: 210 20% 90%;
+    --popover: 220 18% 16%;
+    --popover-foreground: 210 25% 92%;
 
-    /* Golden/Amber accents for legal profession */
-    --primary: 45 90% 55%;             /* Professional gold (#d4af37) */
-    --primary-foreground: 220 15% 10%;
+    /* Enhanced golden accents - more vibrant */
+    --primary: 45 95% 60%;             /* Brighter professional gold */
+    --primary-foreground: 220 20% 12%;
 
-    --secondary: 220 15% 18%;          /* Lighter gray secondary */
-    --secondary-foreground: 210 20% 88%;
+    --secondary: 220 18% 20%;          /* Enhanced secondary */
+    --secondary-foreground: 210 25% 90%;
 
-    --muted: 220 15% 16%;
-    --muted-foreground: 215 25% 70%;
+    --muted: 220 18% 18%;
+    --muted-foreground: 215 30% 75%;   /* Better contrast */
 
-    --accent: 45 85% 60%;              /* Lighter gold accent */
-    --accent-foreground: 220 15% 10%;
-    --accent-legal: 45 90% 55%;        /* Legal accent color */
+    --accent: 45 90% 65%;              /* Vibrant gold accent */
+    --accent-foreground: 220 20% 12%;
+    --accent-legal: 45 95% 60%;        /* Enhanced legal accent */
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 96%;
+    --destructive: 0 88% 65%;          /* More vibrant destructive */
+    --destructive-foreground: 210 25% 96%;
 
-    --border: 220 15% 22%;             /* Lighter borders for better visibility */
-    --input: 220 15% 18%;
-    --ring: 45 90% 55%;                /* Gold focus ring */
+    --border: 220 18% 25%;             /* Better visible borders */
+    --input: 220 18% 20%;
+    --ring: 45 95% 60%;                /* Enhanced focus ring */
 
     --radius: 0.75rem;
 
-    /* Professional sidebar colors - softened */
-    --sidebar-background: 220 15% 12%;
-    --sidebar-foreground: 210 20% 88%;
-    --sidebar-primary: 45 90% 55%;
-    --sidebar-primary-foreground: 220 15% 10%;
-    --sidebar-accent: 220 15% 18%;
-    --sidebar-accent-foreground: 210 20% 88%;
-    --sidebar-border: 220 15% 22%;
-    --sidebar-ring: 45 90% 55%;
+    /* Enhanced sidebar colors */
+    --sidebar-background: 220 20% 14%;
+    --sidebar-foreground: 210 25% 90%;
+    --sidebar-primary: 45 95% 60%;
+    --sidebar-primary-foreground: 220 20% 12%;
+    --sidebar-accent: 220 18% 20%;
+    --sidebar-accent-foreground: 210 25% 90%;
+    --sidebar-border: 220 18% 25%;
+    --sidebar-ring: 45 95% 60%;
 
-    /* Additional legal theme colors */
-    --background-deep: 220 20% 8%;     /* Lighter deeper background */
+    /* Additional enhanced colors */
+    --background-deep: 220 25% 10%;    /* Deeper backgrounds */
+    --success: 142 75% 45%;            /* Success green */
+    --warning: 38 95% 55%;             /* Warning orange */
+    --info: 210 85% 55%;               /* Info blue */
   }
 }
 
@@ -167,25 +170,33 @@
   background-clip: text;
 }
 
-/* Category-specific gradients */
+/* Enhanced category-specific gradients - more vibrant */
 .gradient-study {
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6, #1e40af);
+  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
 }
 
 .gradient-ai {
-  background: linear-gradient(135deg, #0891b2, #06b6d4, #0e7490);
+  background: linear-gradient(135deg, #0c4a6e, #0891b2, #22d3ee);
 }
 
 .gradient-legal {
-  background: linear-gradient(135deg, #d4af37, #f59e0b, #d97706);
+  background: linear-gradient(135deg, #d97706, #f59e0b, #fbbf24);
 }
 
 .gradient-media {
-  background: linear-gradient(135deg, #7c3aed, #a855f7, #6d28d9);
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6, #a78bfa);
 }
 
 .gradient-docs {
-  background: linear-gradient(135deg, #059669, #10b981, #047857);
+  background: linear-gradient(135deg, #047857, #10b981, #34d399);
+}
+
+.gradient-premium {
+  background: linear-gradient(135deg, #be185d, #ec4899, #f472b6);
+}
+
+.gradient-security {
+  background: linear-gradient(135deg, #dc2626, #ef4444, #f87171);
 }
 
 /* Professional hover effects */
