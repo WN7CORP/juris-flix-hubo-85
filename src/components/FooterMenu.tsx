@@ -1,5 +1,5 @@
 
-import { Scale, Bot, Library, Headphones, Home, FileText, Crown, Brain } from 'lucide-react';
+import { Scale, Bot, Library, Headphones, Home, FileText, Crown, Brain, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigation } from '@/context/NavigationContext';
 import { useAppFunctions } from '@/hooks/useAppFunctions';
@@ -32,7 +32,7 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
     {
       id: 'loja',
       title: 'Loja',
-      icon: Scale,
+      icon: ShoppingCart,
       function: 'Loja'
     },
     {
