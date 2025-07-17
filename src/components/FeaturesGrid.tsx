@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { useAppFunctions } from '@/hooks/useAppFunctions';
 import { useNavigation } from '@/context/NavigationContext';
@@ -40,7 +39,10 @@ import {
   Archive,
   Code,
   Database,
-  Hammer
+  Hammer,
+  ShoppingBag,
+  Users,
+  Sparkles
 } from 'lucide-react';
 
 // Array expandido de ícones únicos
@@ -62,13 +64,13 @@ const getUniqueIconForFunction = (funcao: string, index: number) => {
   if (name.includes('audio') || name.includes('áudio')) return Headphones;
   if (name.includes('mapa') && name.includes('mental')) return Brain;
   if (name.includes('plataforma') && name.includes('desktop')) return Monitor;
-  if (name.includes('flashcard') || name.includes('flash card')) return Brain; // Alterado para cérebro
+  if (name.includes('flashcard') || name.includes('flash card')) return Brain;
   if (name.includes('resumo') || name.includes('codigo') || name.includes('código')) return BookOpen;
   if (name.includes('video') || name.includes('vídeo') || name.includes('aula')) return Play;
   if (name.includes('petições') || name.includes('peticoes') || name.includes('petição')) return Folder;
   if (name.includes('noticia') || name.includes('notícia') || name.includes('juridica')) return Newspaper;
   if (name.includes('juriflix') || name.includes('filme') || name.includes('cinema')) return Film;
-  if (name.includes('simulado') || name.includes('prova') || name.includes('oab')) return Hammer; // Alterado para martelo
+  if (name.includes('simulado') || name.includes('prova') || name.includes('oab')) return Hammer;
   if (name.includes('calendario') || name.includes('agenda')) return Calendar;
   if (name.includes('curso') || name.includes('aula')) return GraduationCap;
   if (name.includes('pesquisa') || name.includes('busca')) return Search;
@@ -86,27 +88,26 @@ const getUniqueIconForFunction = (funcao: string, index: number) => {
   if (name.includes('arquivo') || name.includes('file')) return Archive;
   if (name.includes('código') || name.includes('programação')) return Code;
   if (name.includes('banco') || name.includes('dados')) return Database;
-  if (name.includes('questões') || name.includes('questao') || name.includes('questão')) return Target; // Alterado para alvo
-  if (name.includes('dicionário') || name.includes('dicionario')) return Search; // Alterado para lupa
+  if (name.includes('questões') || name.includes('questao') || name.includes('questão')) return Target;
+  if (name.includes('dicionário') || name.includes('dicionario')) return Search;
   
-  // Se não encontrar correspondência específica, usa um ícone único baseado no índice
   return availableIcons[index % availableIcons.length] || Scale;
 };
 
 const getColorForFunction = (index: number) => {
   const colors = [
-    'gradient-legal',     // Gold for legal content
-    'gradient-ai',        // Cyan for AI/tech
-    'gradient-study',     // Blue for study materials
-    'gradient-media',     // Purple for media content
-    'gradient-docs',      // Green for documents
-    'gradient-legal',     // Back to gold
-    'gradient-ai',        // Cyan
-    'gradient-study',     // Blue
-    'gradient-media',     // Purple
-    'gradient-docs',      // Green
-    'gradient-legal',     // Gold
-    'gradient-ai'         // Cyan
+    'gradient-legal',
+    'gradient-ai',
+    'gradient-study',
+    'gradient-media',
+    'gradient-docs',
+    'gradient-legal',
+    'gradient-ai',
+    'gradient-study',
+    'gradient-media',
+    'gradient-docs',
+    'gradient-legal',
+    'gradient-ai'
   ];
   return colors[index % colors.length];
 };
@@ -119,7 +120,6 @@ export const FeaturesGrid = () => {
     setCurrentFunction(funcao);
   };
 
-  // Sort functions by id to maintain table order
   const sortedFunctions = [...functions].sort((a, b) => a.id - b.id);
 
   if (loading) {
@@ -153,30 +153,58 @@ export const FeaturesGrid = () => {
   return (
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Botões destacados minimalistas: Loja e Comunidade */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-12 animate-slide-up-legal">
+        {/* Botões destacados redesenhados com cores únicas e design estiloso */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 animate-slide-up-legal">
+          {/* Botão Loja - Design estiloso com azul vibrante */}
           <button
             onClick={() => setCurrentFunction('Loja')}
-            className="group relative bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 text-foreground px-6 py-3 rounded-xl font-medium text-base shadow-lg hover:shadow-primary/20 transform hover:scale-[1.02] transition-all duration-300 flex items-center gap-3 min-w-[240px] justify-center hover:bg-card/95"
+            className="group relative overflow-hidden bg-gradient-to-r from-store-primary via-blue-500 to-store-secondary hover:from-blue-600 hover:via-blue-500 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-glow"
           >
-            <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
-              </svg>
+            {/* Background gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Icon container with glow effect */}
+            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+              <ShoppingBag className="w-5 h-5 text-white drop-shadow-lg" />
             </div>
-            <span>Loja</span>
+            
+            {/* Text with glow effect */}
+            <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
+              Loja de Livros
+            </span>
+            
+            {/* Sparkle effects */}
+            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
+            
+            {/* Arrow indicator */}
+            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
           
+          {/* Botão Comunidade - Design estiloso com verde vibrante */}
           <button
             onClick={() => setCurrentFunction('Comunidade')}
-            className="group relative bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary/30 text-foreground px-6 py-3 rounded-xl font-medium text-base shadow-lg hover:shadow-primary/20 transform hover:scale-[1.02] transition-all duration-300 flex items-center gap-3 min-w-[240px] justify-center hover:bg-card/95"
+            className="group relative overflow-hidden bg-gradient-to-r from-community-primary via-emerald-500 to-community-secondary hover:from-emerald-600 hover:via-emerald-500 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-community-glow"
           >
-            <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
-              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13 3V7H9S7 9 7 9V14H5V22H9V18H11V22H15V16H13V11H15L21 9Z"/>
-              </svg>
+            {/* Background gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Icon container with glow effect */}
+            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+              <Users className="w-5 h-5 text-white drop-shadow-lg" />
             </div>
-            <span>Comunidade</span>
+            
+            {/* Text with glow effect */}
+            <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
+              Comunidade VIP
+            </span>
+            
+            {/* Sparkle effects */}
+            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
+            
+            {/* Arrow indicator */}
+            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
         </div>
 
