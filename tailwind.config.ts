@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,23 +67,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'accent-legal': 'hsl(var(--accent-legal))',
+				'accent-legal': 'hsl(var(--accent-legal))', // Cor dourada consistente para o tema jurídico
 				'success': 'hsl(var(--success))',
 				'warning': 'hsl(var(--warning))',
-				'info': 'hsl(var(--info))',
-				'store': {
-					primary: 'hsl(var(--store-primary))',
-					secondary: 'hsl(var(--store-secondary))'
-				},
-				'community': {
-					primary: 'hsl(var(--community-primary))',
-					secondary: 'hsl(var(--community-secondary))'
-				},
-				'premium': {
-					primary: 'hsl(var(--premium-primary))',
-					secondary: 'hsl(var(--premium-secondary))',
-					accent: 'hsl(var(--premium-accent))'
-				}
+				'info': 'hsl(var(--info))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -145,18 +133,6 @@ export default {
 				'slide-up': {
 					'0%': { transform: 'translateY(20px)', opacity: '0' },
 					'100%': { transform: 'translateY(0)', opacity: '1' }
-				},
-				'glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' }
-				},
-				'community-glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(16, 185, 129, 0.6)' }
-				},
-				'premium-glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)' },
-					'50%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }
 				}
 			},
 			animation: {
@@ -167,10 +143,7 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
 				'scale-out': 'scale-out 0.2s ease-out',
-				'slide-up': 'slide-up 0.3s ease-out',
-				'glow': 'glow 2s ease-in-out infinite',
-				'community-glow': 'community-glow 2s ease-in-out infinite',
-				'premium-glow': 'premium-glow 2s ease-in-out infinite'
+				'slide-up': 'slide-up 0.3s ease-out'
 			}
 		}
 	},

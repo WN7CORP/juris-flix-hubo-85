@@ -1,5 +1,4 @@
-
-import { Crown, Check, Smartphone, Apple, Star, Zap, Shield, Infinity, Sparkles, Trophy, Gift } from 'lucide-react';
+import { Crown, Check, Smartphone, Apple, Star, Zap, Shield, Infinity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -19,6 +18,7 @@ const handlePremiumUpgrade = () => {
   } else if (device === 'ios') {
     window.open('https://apps.apple.com/us/app/direito-premium/id6451451647', '_blank');
   } else {
+    // Para web, pode redirecionar para uma página de pagamento ou mostrar as opções
     window.open('https://play.google.com/store/apps/details?id=br.com.app.gpu2994564.gpub492f9e6db037057aaa93d7adfa9e3e0', '_blank');
   }
 };
@@ -28,38 +28,27 @@ export const Premium = () => {
     {
       icon: Shield,
       title: 'Sem Anúncios',
-      description: 'Experiência de estudo completamente livre de interrupções',
-      color: 'from-red-500 to-pink-500'
+      description: 'Experiência de estudo completamente livre de interrupções'
     },
     {
       icon: Crown,
       title: 'Acesso Total à Plataforma',
-      description: 'Links diretos para todas as funcionalidades da plataforma desktop',
-      color: 'from-premium-primary to-premium-secondary'
+      description: 'Links diretos para todas as funcionalidades da plataforma desktop'
     },
     {
       icon: Zap,
       title: 'Recursos Exclusivos',
-      description: 'Ferramentas avançadas de estudo e organização',
-      color: 'from-yellow-500 to-orange-500'
+      description: 'Ferramentas avançadas de estudo e organização'
     },
     {
       icon: Star,
       title: 'Suporte Prioritário',
-      description: 'Atendimento especializado e resposta rápida',
-      color: 'from-blue-500 to-indigo-500'
+      description: 'Atendimento especializado e resposta rápida'
     },
     {
       icon: Infinity,
       title: 'Acesso Vitalício',
-      description: 'Pagamento único para uso permanente',
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      icon: Gift,
-      title: 'Conteúdo Exclusivo',
-      description: 'Material premium disponível apenas para assinantes',
-      color: 'from-purple-500 to-violet-500'
+      description: 'Pagamento único para uso permanente'
     }
   ];
 
@@ -75,83 +64,62 @@ export const Premium = () => {
     'Assistente IA jurídica',
     'Jurisprudência atualizada',
     'Modelos de petições',
-    'Formulários atualizados',
-    'Calculadoras jurídicas',
-    'Agenda profissional',
-    'Contratos digitais',
-    'Simulados OAB exclusivos'
+    'Formulários atualizados'
   ];
 
   return (
-    <div className="max-w-5xl mx-auto p-4 space-y-8 min-h-screen bg-gradient-to-br from-background via-background to-premium-primary/5">
-      {/* Header estiloso */}
-      <div className="text-center space-y-6 pt-8 animate-fade-in-up">
-        <div className="relative inline-flex items-center gap-3 bg-gradient-to-r from-premium-primary/20 to-premium-secondary/20 text-premium-primary px-6 py-3 rounded-2xl text-lg font-bold mb-6 border border-premium-primary/30 backdrop-blur-sm animate-premium-glow">
-          <Crown className="w-6 h-6 animate-bounce" />
+    <div className="max-w-4xl mx-auto p-4 space-y-8">
+      {/* Header */}
+      <div className="text-center space-y-4">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 text-amber-600 dark:text-amber-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <Crown className="w-4 h-4" />
           <span>Versão Premium</span>
-          <Sparkles className="w-5 h-5 animate-pulse" />
         </div>
         
-        <h1 className="text-5xl sm:text-6xl font-black bg-gradient-to-r from-premium-primary via-premium-accent to-premium-secondary bg-clip-text text-transparent drop-shadow-2xl">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-500 to-yellow-600 bg-clip-text text-transparent">
           Direito Premium
         </h1>
         
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          🚀 Desbloqueie todo o potencial da sua jornada jurídica com acesso completo 
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Desbloqueie todo o potencial da sua jornada jurídica com acesso completo 
           à nossa plataforma e experiência sem anúncios.
         </p>
       </div>
 
-      {/* Card de preço redesenhado */}
-      <Card className="relative overflow-hidden bg-gradient-to-br from-premium-primary/10 via-premium-secondary/5 to-premium-accent/10 border-2 border-premium-primary/30 shadow-2xl hover:shadow-premium-primary/20 transition-all duration-500 animate-scale-in">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-r from-premium-primary/5 to-premium-secondary/5 animate-pulse"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-primary via-premium-accent to-premium-secondary"></div>
-        
-        <CardContent className="relative pt-10 pb-10 text-center">
-          <div className="space-y-6">
-            {/* Preço destacado */}
-            <div className="space-y-3">
-              <div className="relative">
-                <div className="text-6xl sm:text-7xl font-black bg-gradient-to-r from-premium-primary to-premium-accent bg-clip-text text-transparent drop-shadow-lg">
-                  R$ 29,99
-                </div>
-                <div className="absolute -top-4 -right-4 animate-bounce">
-                  <Trophy className="w-8 h-8 text-premium-accent" />
-                </div>
+      {/* Preço */}
+      <Card className="text-center bg-gradient-to-br from-amber-500/10 to-yellow-500/10 border-amber-200 dark:border-amber-800">
+        <CardContent className="pt-8 pb-8">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <div className="text-5xl font-bold text-amber-600 dark:text-amber-400">
+                R$ 29,99
               </div>
-              
-              <Badge className="bg-gradient-to-r from-premium-primary to-premium-secondary text-white px-4 py-2 text-lg font-bold shadow-lg">
-                <Infinity className="w-4 h-4 mr-2" />
+              <Badge variant="secondary" className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                <Infinity className="w-3 h-3 mr-1" />
                 Acesso Vitalício
               </Badge>
             </div>
             
-            <p className="text-lg text-muted-foreground font-medium">
-              💎 Pagamento único • Sem mensalidades • Para sempre
+            <p className="text-muted-foreground">
+              Pagamento único • Sem mensalidades • Para sempre
             </p>
             
-            {/* Botão CTA redesenhado */}
             <Button 
               onClick={handlePremiumUpgrade}
               size="lg" 
-              className="relative overflow-hidden bg-gradient-to-r from-premium-primary via-premium-accent to-premium-secondary hover:from-premium-secondary hover:via-premium-primary hover:to-premium-accent text-white font-black px-12 py-4 text-xl rounded-2xl shadow-2xl hover:shadow-premium-primary/30 transform hover:scale-105 transition-all duration-500 animate-premium-glow"
+              className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white font-semibold px-8 py-3 text-lg"
             >
-              {/* Button background effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <Crown className="w-6 h-6 mr-3 animate-bounce" />
-              <span className="relative z-10">Ser Premium Agora</span>
-              <Sparkles className="w-5 h-5 ml-3 animate-pulse" />
+              <Crown className="w-5 h-5 mr-2" />
+              Ser Premium Agora
             </Button>
             
-            <div className="flex items-center justify-center gap-6 text-muted-foreground mt-6">
-              <div className="flex items-center gap-2 text-lg">
-                <Smartphone className="w-5 h-5 text-green-500" />
+            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mt-4">
+              <div className="flex items-center gap-2">
+                <Smartphone className="w-4 h-4" />
                 <span>Android</span>
               </div>
-              <div className="flex items-center gap-2 text-lg">
-                <Apple className="w-5 h-5 text-blue-500" />
+              <div className="flex items-center gap-2">
+                <Apple className="w-4 h-4" />
                 <span>iOS</span>
               </div>
             </div>
@@ -159,33 +127,21 @@ export const Premium = () => {
         </CardContent>
       </Card>
 
-      {/* Benefícios redesenhados */}
-      <div className="space-y-8">
-        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-premium-primary to-premium-secondary bg-clip-text text-transparent">
-          ✨ Vantagens Exclusivas
-        </h2>
+      {/* Benefícios */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold text-center">Vantagens Exclusivas</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {benefits.map((benefit, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-2xl hover:shadow-premium-primary/20 transition-all duration-500 hover:scale-105 bg-gradient-to-br from-card/80 to-card/40 border border-premium-primary/20 hover:border-premium-primary/40 overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-6 relative">
-                {/* Background gradient effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                
-                <div className="relative flex items-start gap-4">
-                  <div className={`p-4 rounded-2xl bg-gradient-to-br ${benefit.color} text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <benefit.icon className="w-8 h-8" />
+            <Card key={index} className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-amber-500/20 to-yellow-500/20">
+                    <benefit.icon className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                   </div>
-                  
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-premium-primary transition-colors">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                  <div className="space-y-2">
+                    <h3 className="font-semibold">{benefit.title}</h3>
+                    <p className="text-sm text-muted-foreground">
                       {benefit.description}
                     </p>
                   </div>
@@ -196,65 +152,39 @@ export const Premium = () => {
         </div>
       </div>
 
-      {/* Lista de recursos redesenhada */}
-      <Card className="bg-gradient-to-br from-card/80 to-card/40 border border-premium-primary/20">
-        <CardHeader className="text-center pb-6">
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-premium-primary to-premium-secondary bg-clip-text text-transparent">
-            🎯 O que você terá acesso:
-          </CardTitle>
+      {/* Lista de recursos */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-center">O que você terá acesso:</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className="flex items-center gap-4 p-3 rounded-lg hover:bg-premium-primary/5 transition-colors duration-200"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <div className="flex-shrink-0">
-                  <Check className="w-6 h-6 text-green-500 bg-green-500/20 rounded-full p-1" />
-                </div>
-                <span className="text-foreground font-medium">{feature}</span>
+              <div key={index} className="flex items-center gap-3">
+                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm">{feature}</span>
               </div>
             ))}
           </div>
         </CardContent>
       </Card>
 
-      {/* Call to action final redesenhado */}
-      <div className="relative text-center space-y-6 bg-gradient-to-r from-premium-primary/20 via-premium-accent/10 to-premium-secondary/20 rounded-3xl p-12 border border-premium-primary/30 overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-r from-premium-primary/10 via-transparent to-premium-secondary/10 animate-pulse"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-primary via-premium-accent to-premium-secondary"></div>
-        
-        <div className="relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-8 h-8 text-premium-accent animate-spin" />
-            <h3 className="text-3xl font-black bg-gradient-to-r from-premium-primary to-premium-secondary bg-clip-text text-transparent">
-              Transforme seus estudos hoje mesmo!
-            </h3>
-            <Sparkles className="w-8 h-8 text-premium-accent animate-spin" style={{ animationDirection: 'reverse' }} />
-          </div>
-          
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Junte-se a <span className="font-bold text-premium-primary">milhares de estudantes</span> e 
-            profissionais que já escolheram o Premium
-          </p>
-          
-          <Button 
-            onClick={handlePremiumUpgrade}
-            size="lg" 
-            className="relative overflow-hidden bg-gradient-to-r from-premium-primary via-premium-accent to-premium-secondary hover:from-premium-secondary hover:via-premium-primary hover:to-premium-accent text-white font-black px-12 py-4 text-xl rounded-2xl shadow-2xl hover:shadow-premium-primary/30 transform hover:scale-105 transition-all duration-500"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-            <Crown className="w-6 h-6 mr-3 animate-bounce" />
-            <span className="relative z-10">Começar Agora - R$ 29,99</span>
-          </Button>
-          
-          <p className="text-premium-primary/80 text-lg font-medium mt-4">
-            💰 Investimento único • 🎓 Conhecimento para toda vida
-          </p>
-        </div>
+      {/* Call to action final */}
+      <div className="text-center space-y-4 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-2xl p-8">
+        <h3 className="text-xl font-bold">
+          🚀 Transforme seus estudos hoje mesmo!
+        </h3>
+        <p className="text-muted-foreground">
+          Junte-se a milhares de estudantes e profissionais que já escolheram o Premium
+        </p>
+        <Button 
+          onClick={handlePremiumUpgrade}
+          size="lg" 
+          className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white font-semibold px-8 py-3"
+        >
+          <Crown className="w-5 h-5 mr-2" />
+          Começar Agora - R$ 29,99
+        </Button>
       </div>
     </div>
   );
