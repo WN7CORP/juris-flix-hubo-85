@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -71,23 +70,18 @@ export default {
 				'success': 'hsl(var(--success))',
 				'warning': 'hsl(var(--warning))',
 				'info': 'hsl(var(--info))',
-				// Cores específicas para botões estilosos
-				'shop': {
-					DEFAULT: 'hsl(270 80% 60%)',
-					foreground: 'hsl(0 0% 100%)',
-					hover: 'hsl(270 85% 55%)'
+				'store': {
+					primary: 'hsl(var(--store-primary))',
+					secondary: 'hsl(var(--store-secondary))'
 				},
 				'community': {
-					DEFAULT: 'hsl(160 85% 50%)',
-					foreground: 'hsl(0 0% 100%)',
-					hover: 'hsl(160 90% 45%)'
+					primary: 'hsl(var(--community-primary))',
+					secondary: 'hsl(var(--community-secondary))'
 				},
 				'premium': {
-					DEFAULT: 'hsl(45 95% 60%)',
-					foreground: 'hsl(220 20% 12%)',
-					hover: 'hsl(45 100% 55%)',
-					light: 'hsl(45 95% 95%)',
-					dark: 'hsl(45 95% 20%)'
+					primary: 'hsl(var(--premium-primary))',
+					secondary: 'hsl(var(--premium-secondary))',
+					accent: 'hsl(var(--premium-accent))'
 				}
 			},
 			borderRadius: {
@@ -153,12 +147,16 @@ export default {
 					'100%': { transform: 'translateY(0)', opacity: '1' }
 				},
 				'glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)' },
-					'50%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }
+					'0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' }
 				},
-				'shimmer': {
-					'0%': { backgroundPosition: '-200% 0' },
-					'100%': { backgroundPosition: '200% 0' }
+				'community-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(16, 185, 129, 0.6)' }
+				},
+				'premium-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }
 				}
 			},
 			animation: {
@@ -171,7 +169,8 @@ export default {
 				'scale-out': 'scale-out 0.2s ease-out',
 				'slide-up': 'slide-up 0.3s ease-out',
 				'glow': 'glow 2s ease-in-out infinite',
-				'shimmer': 'shimmer 2s linear infinite'
+				'community-glow': 'community-glow 2s ease-in-out infinite',
+				'premium-glow': 'premium-glow 2s ease-in-out infinite'
 			}
 		}
 	},

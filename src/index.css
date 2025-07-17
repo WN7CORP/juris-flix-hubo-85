@@ -2,58 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Legal Studies App - Enhanced Professional Dark Theme */
+/* Legal Studies App - Enhanced Professional Color Palette */
 
 @layer base {
   :root {
-    /* Enhanced Modern Legal Theme - More Vibrant and Professional */
-    --background: 215 25% 15%;           /* Richer dark background */
-    --foreground: 210 30% 95%;           /* Brighter readable text */
+    /* Enhanced Modern Legal Theme - More Vibrant and Attractive */
+    --background: 220 25% 10%;          /* Deeper rich background */
+    --foreground: 210 30% 95%;          /* Brighter readable text */
 
-    --card: 215 22% 18%;                 /* Enhanced card background */
-    --card-foreground: 210 30% 95%;
+    --card: 220 22% 14%;                /* Enhanced card background */
+    --card-foreground: 210 30% 94%;
 
-    --popover: 215 22% 18%;
-    --popover-foreground: 210 30% 95%;
+    --popover: 220 22% 14%;
+    --popover-foreground: 210 30% 94%;
 
-    /* Enhanced golden accents - more vibrant and professional */
-    --primary: 45 95% 65%;               /* Brighter professional gold */
-    --primary-foreground: 215 25% 15%;
+    /* Enhanced golden accents - more vibrant and luxurious */
+    --primary: 45 100% 65%;             /* More vibrant professional gold */
+    --primary-foreground: 220 25% 10%;
 
-    --secondary: 215 20% 22%;            /* Enhanced secondary */
+    --secondary: 220 22% 18%;           /* Enhanced secondary */
     --secondary-foreground: 210 30% 92%;
 
-    --muted: 215 20% 20%;
-    --muted-foreground: 210 35% 78%;     /* Better contrast */
+    --muted: 220 22% 16%;
+    --muted-foreground: 215 35% 78%;    /* Better contrast */
 
-    --accent: 45 90% 70%;                /* More vibrant gold accent */
-    --accent-foreground: 215 25% 15%;
-    --accent-legal: 45 95% 65%;          /* Enhanced legal accent */
+    --accent: 45 95% 68%;               /* More vibrant gold accent */
+    --accent-foreground: 220 25% 10%;
+    --accent-legal: 45 100% 65%;        /* Enhanced legal accent */
 
-    --destructive: 0 85% 60%;            /* More vibrant destructive */
+    --destructive: 0 92% 68%;           /* More vibrant destructive */
     --destructive-foreground: 210 30% 98%;
 
-    --border: 215 20% 28%;               /* Better visible borders */
-    --input: 215 20% 22%;
-    --ring: 45 95% 65%;                  /* Enhanced focus ring */
+    --border: 220 22% 28%;              /* Better visible borders */
+    --input: 220 22% 18%;
+    --ring: 45 100% 65%;                /* Enhanced focus ring */
 
     --radius: 0.75rem;
 
     /* Enhanced sidebar colors */
-    --sidebar-background: 215 25% 16%;
+    --sidebar-background: 220 25% 12%;
     --sidebar-foreground: 210 30% 92%;
-    --sidebar-primary: 45 95% 65%;
-    --sidebar-primary-foreground: 215 25% 15%;
-    --sidebar-accent: 215 20% 22%;
+    --sidebar-primary: 45 100% 65%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 220 22% 18%;
     --sidebar-accent-foreground: 210 30% 92%;
-    --sidebar-border: 215 20% 28%;
-    --sidebar-ring: 45 95% 65%;
+    --sidebar-border: 220 22% 28%;
+    --sidebar-ring: 45 100% 65%;
 
-    /* Enhanced additional colors */
-    --background-deep: 215 30% 12%;      /* Deeper backgrounds */
-    --success: 142 70% 50%;              /* Success green */
-    --warning: 38 95% 60%;               /* Warning orange */
-    --info: 210 85% 60%;                 /* Info blue */
+    /* New enhanced color palette */
+    --background-deep: 220 30% 8%;      /* Deeper backgrounds */
+    --success: 142 80% 50%;             /* Vibrant success green */
+    --warning: 38 100% 60%;             /* Vibrant warning orange */
+    --info: 210 90% 60%;                /* Vibrant info blue */
+    
+    /* Unique colors for special buttons */
+    --store-primary: 210 100% 60%;      /* Vibrant blue for store */
+    --store-secondary: 210 85% 45%;
+    --community-primary: 142 75% 50%;   /* Vibrant green for community */
+    --community-secondary: 142 60% 35%;
+    
+    /* Premium colors */
+    --premium-primary: 280 100% 65%;    /* Vibrant purple for premium */
+    --premium-secondary: 280 85% 45%;
+    --premium-accent: 45 100% 70%;      /* Gold accent for premium */
   }
 }
 
@@ -74,20 +85,20 @@
 
   /* Enhanced scrollbar for professional look */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(215 25% 15%);
+    background: rgba(26, 29, 35, 0.3);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(45 95% 65% / 0.5);
-    border-radius: 4px;
+    background: rgba(255, 193, 7, 0.5);
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(45 95% 65% / 0.7);
+    background: rgba(255, 193, 7, 0.7);
   }
 
   /* Hide scrollbar on mobile while keeping functionality */
@@ -108,106 +119,119 @@
   }
 }
 
-/* Enhanced Professional depth effects */
+/* Enhanced depth effects - adjusted for new palette */
 .card-depth-1 {
   box-shadow: 
-    0 2px 4px hsl(215 30% 5% / 0.3),
-    0 1px 2px hsl(215 30% 5% / 0.2);
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .card-depth-2 {
   box-shadow: 
-    0 6px 12px hsl(215 30% 5% / 0.3),
-    0 3px 6px hsl(215 30% 5% / 0.2),
-    inset 0 1px 0 hsl(210 30% 95% / 0.1);
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .card-depth-3 {
   box-shadow: 
-    0 12px 24px hsl(215 30% 5% / 0.4),
-    0 6px 12px hsl(215 30% 5% / 0.3),
-    inset 0 1px 0 hsl(210 30% 95% / 0.1);
+    0 10px 15px rgba(0, 0, 0, 0.35),
+    0 4px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Professional glass effect for legal theme */
+/* Enhanced glass effect for legal theme */
 .glass-effect-legal {
   backdrop-filter: blur(24px);
-  background: hsl(215 22% 18% / 0.9);
-  border: 1px solid hsl(45 95% 65% / 0.2);
+  background: rgba(30, 32, 38, 0.9);
+  border: 1px solid rgba(255, 193, 7, 0.2);
   box-shadow: 
-    0 8px 32px hsl(215 30% 5% / 0.4),
-    inset 0 1px 0 hsl(210 30% 95% / 0.1);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Enhanced floating effect */
 .floating-effect-legal {
   backdrop-filter: blur(32px);
-  background: hsl(215 22% 18% / 0.95);
-  border: 1px solid hsl(45 95% 65% / 0.25);
+  background: rgba(30, 32, 38, 0.95);
+  border: 1px solid rgba(255, 193, 7, 0.25);
   box-shadow: 
-    0 20px 40px hsl(215 30% 5% / 0.5),
-    0 8px 16px hsl(215 30% 5% / 0.3),
-    inset 0 1px 0 hsl(210 30% 95% / 0.12);
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Professional gradient for legal theme */
+/* Enhanced gradient text styles */
 .gradient-text-legal {
-  background: linear-gradient(135deg, hsl(45 95% 65%), hsl(45 100% 75%), hsl(45 95% 65%));
+  background: linear-gradient(135deg, #ffc107, #ffeb3b, #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-legal-light {
-  background: linear-gradient(135deg, hsl(45 100% 75%), hsl(45 100% 90%), hsl(45 100% 75%));
+  background: linear-gradient(135deg, #ffeb3b, #fff9c4, #ffeb3b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Enhanced category-specific gradients */
+/* Enhanced category-specific gradients - more vibrant */
 .gradient-study {
-  background: linear-gradient(135deg, hsl(220 95% 50%), hsl(215 90% 60%), hsl(210 85% 70%));
+  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
 }
 
 .gradient-ai {
-  background: linear-gradient(135deg, hsl(195 95% 40%), hsl(190 90% 50%), hsl(185 85% 60%));
+  background: linear-gradient(135deg, #0c4a6e, #0891b2, #22d3ee);
 }
 
 .gradient-legal {
-  background: linear-gradient(135deg, hsl(30 95% 50%), hsl(35 90% 60%), hsl(40 85% 70%));
+  background: linear-gradient(135deg, #f59e0b, #fbbf24, #fde047);
 }
 
 .gradient-media {
-  background: linear-gradient(135deg, hsl(270 95% 50%), hsl(265 90% 60%), hsl(260 85% 70%));
+  background: linear-gradient(135deg, #7c3aed, #a855f7, #c084fc);
 }
 
 .gradient-docs {
-  background: linear-gradient(135deg, hsl(150 95% 40%), hsl(155 90% 50%), hsl(160 85% 60%));
+  background: linear-gradient(135deg, #059669, #10b981, #34d399);
 }
 
 .gradient-premium {
-  background: linear-gradient(135deg, hsl(320 95% 50%), hsl(315 90% 60%), hsl(310 85% 70%));
+  background: linear-gradient(135deg, #c026d3, #e879f9, #f0abfc);
 }
 
 .gradient-security {
-  background: linear-gradient(135deg, hsl(0 95% 50%), hsl(5 90% 60%), hsl(10 85% 70%));
+  background: linear-gradient(135deg, #dc2626, #ef4444, #f87171);
+}
+
+/* New unique gradient styles for special buttons */
+.gradient-store {
+  background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
+}
+
+.gradient-community {
+  background: linear-gradient(135deg, #059669, #10b981, #34d399);
+}
+
+.gradient-premium-special {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
 }
 
 /* Professional hover effects */
 .hover-lift-legal:hover {
   transform: translateY(-3px);
   box-shadow: 
-    0 20px 40px hsl(215 30% 5% / 0.3),
-    0 8px 16px hsl(215 30% 5% / 0.2),
-    0 0 0 1px hsl(45 95% 65% / 0.3);
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 193, 7, 0.2);
 }
 
 .hover-glow-legal:hover {
   box-shadow: 
-    0 0 30px hsl(45 95% 65% / 0.4),
-    0 0 60px hsl(45 95% 65% / 0.2);
-  border-color: hsl(45 95% 65% / 0.5);
+    0 0 30px rgba(255, 193, 7, 0.3),
+    0 0 60px rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.4);
 }
 
 /* Enhanced Legal Animations */
@@ -263,21 +287,21 @@
   from {
     opacity: 0;
     transform: scale(0.95);
-    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+    box-shadow: 0 0 0 rgba(255, 193, 7, 0);
   }
   to {
     opacity: 1;
     transform: scale(1);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.1);
   }
 }
 
 @keyframes legal-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 40px rgba(255, 193, 7, 0.4);
   }
 }
 
@@ -310,19 +334,19 @@
 
 @keyframes legal-icon-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+    filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.3));
   }
   50% {
-    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+    filter: drop-shadow(0 0 15px rgba(255, 193, 7, 0.6));
   }
 }
 
 @keyframes legal-text-glow {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
   }
   50% {
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    text-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
   }
 }
 
@@ -357,19 +381,19 @@
 
 @keyframes legal-border {
   0% {
-    border-color: rgba(212, 175, 55, 0);
+    border-color: rgba(255, 193, 7, 0);
   }
   100% {
-    border-color: rgba(212, 175, 55, 0.3);
+    border-color: rgba(255, 193, 7, 0.3);
   }
 }
 
 @keyframes legal-hover-glow {
   0% {
-    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+    box-shadow: 0 0 0 rgba(255, 193, 7, 0);
   }
   100% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.2);
   }
 }
 
@@ -425,7 +449,7 @@
 }
 
 .animate-legal-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
   background-size: 200% 100%;
   animation: legal-shimmer 2s infinite;
 }
@@ -476,21 +500,23 @@
 
 /* Professional button enhancements */
 .btn-legal-primary {
-  background: linear-gradient(135deg, #d4af37, #f59e0b);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, #ffc107, #ffb300);
+  border: 1px solid rgba(255, 193, 7, 0.3);
   box-shadow: 
     0 4px 8px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1a1a1a;
 }
 
 .btn-legal-primary:hover {
-  background: linear-gradient(135deg, #f59e0b, #d4af37);
+  background: linear-gradient(135deg, #ffb300, #ffc107);
   box-shadow: 
     0 8px 16px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 20px rgba(255, 193, 7, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-1px);
+  color: #000;
 }
 
 /* Enhanced mobile optimizations */
@@ -522,7 +548,7 @@
   }
 
   * {
-    -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
+    -webkit-tap-highlight-color: rgba(255, 193, 7, 0.2);
   }
 }
 
@@ -536,31 +562,31 @@
   transform: translateY(-4px) scale(1.02);
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(212, 175, 55, 0.2),
+    0 0 0 1px rgba(255, 193, 7, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: rgba(255, 193, 7, 0.3);
 }
 
 /* Neumorphism effect for interactive elements - adjusted */
 .neomorphism-legal {
-  background: linear-gradient(145deg, #232429, #1a1b20);
+  background: linear-gradient(145deg, #1e2026, #16181d);
   box-shadow: 
-    8px 8px 16px rgba(0, 0, 0, 0.3),
-    -8px -8px 16px rgba(60, 65, 75, 0.1);
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(60, 65, 75, 0.15);
 }
 
 .neomorphism-legal:hover {
   box-shadow: 
-    inset 8px 8px 16px rgba(0, 0, 0, 0.2),
-    inset -8px -8px 16px rgba(60, 65, 75, 0.1);
+    inset 8px 8px 16px rgba(0, 0, 0, 0.3),
+    inset -8px -8px 16px rgba(60, 65, 75, 0.15);
 }
 
 /* Glassmorphism for overlays - adjusted */
 .glassmorphism-legal {
-  background: rgba(35, 36, 41, 0.6);
+  background: rgba(30, 32, 38, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Safe area enhancements */
@@ -593,9 +619,9 @@
 
 /* Enhanced focus states for accessibility */
 .focus-legal:focus-visible {
-  outline: 2px solid rgb(212 175 55);
+  outline: 2px solid rgb(255 193 7);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.2);
 }
 
 /* Professional section spacing */
