@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from '@/components/ui/card';
 import { useAppFunctions } from '@/hooks/useAppFunctions';
 import { useNavigation } from '@/context/NavigationContext';
@@ -94,24 +95,6 @@ const getUniqueIconForFunction = (funcao: string, index: number) => {
   return availableIcons[index % availableIcons.length] || Scale;
 };
 
-const getColorForFunction = (index: number) => {
-  const colors = [
-    'gradient-legal',
-    'gradient-ai',
-    'gradient-study',
-    'gradient-media',
-    'gradient-docs',
-    'gradient-legal',
-    'gradient-ai',
-    'gradient-study',
-    'gradient-media',
-    'gradient-docs',
-    'gradient-legal',
-    'gradient-ai'
-  ];
-  return colors[index % colors.length];
-};
-
 export const FeaturesGrid = () => {
   const { functions, loading } = useAppFunctions();
   const { setCurrentFunction } = useNavigation();
@@ -136,11 +119,11 @@ export const FeaturesGrid = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {[...Array(8)].map((_, i) => (
-              <Card key={i} className="animate-pulse neomorphism-legal">
+              <Card key={i} className="animate-pulse card-legal">
                 <CardContent className="p-4 sm:p-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gray-600 rounded-xl animate-legal-shimmer"></div>
-                  <div className="h-4 bg-gray-600 rounded mb-2 animate-legal-shimmer"></div>
-                  <div className="h-3 bg-gray-600 rounded animate-legal-shimmer"></div>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-muted rounded-xl animate-legal-shimmer"></div>
+                  <div className="h-4 bg-muted rounded mb-2 animate-legal-shimmer"></div>
+                  <div className="h-3 bg-muted rounded animate-legal-shimmer"></div>
                 </CardContent>
               </Card>
             ))}
@@ -153,63 +136,35 @@ export const FeaturesGrid = () => {
   return (
     <div className="py-12 sm:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Botões destacados redesenhados com cores únicas e design estiloso */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 animate-slide-up-legal">
-          {/* Botão Loja - Design estiloso com azul vibrante */}
+        {/* Botões destacados redesenhados com design profissional */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 animate-fade-in">
+          {/* Botão Loja - Design profissional */}
           <button
             onClick={() => setCurrentFunction('Loja')}
-            className="group relative overflow-hidden bg-gradient-to-r from-store-primary via-blue-500 to-store-secondary hover:from-blue-600 hover:via-blue-500 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-glow"
+            className="group relative overflow-hidden bg-gradient-to-r from-store-primary to-store-secondary hover:from-store-secondary hover:to-store-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-store-primary/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center border border-store-primary/20"
           >
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            {/* Icon container with glow effect */}
-            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-              <ShoppingBag className="w-5 h-5 text-white drop-shadow-lg" />
+            <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
+              <ShoppingBag className="w-5 h-5 text-white" />
             </div>
-            
-            {/* Text with glow effect */}
-            <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
-              Loja de Livros
-            </span>
-            
-            {/* Sparkle effects */}
-            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
-            
-            {/* Arrow indicator */}
-            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            <span className="font-medium">Loja de Livros</span>
+            <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
           
-          {/* Botão Comunidade - Design estiloso com verde vibrante */}
+          {/* Botão Comunidade - Design profissional */}
           <button
             onClick={() => setCurrentFunction('Comunidade')}
-            className="group relative overflow-hidden bg-gradient-to-r from-community-primary via-emerald-500 to-community-secondary hover:from-emerald-600 hover:via-emerald-500 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center animate-community-glow"
+            className="group relative overflow-hidden bg-gradient-to-r from-community-primary to-community-secondary hover:from-community-secondary hover:to-community-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-community-primary/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center border border-community-primary/20"
           >
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            {/* Icon container with glow effect */}
-            <div className="relative z-10 w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-              <Users className="w-5 h-5 text-white drop-shadow-lg" />
+            <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
+              <Users className="w-5 h-5 text-white" />
             </div>
-            
-            {/* Text with glow effect */}
-            <span className="relative z-10 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
-              Comunidade VIP
-            </span>
-            
-            {/* Sparkle effects */}
-            <div className="absolute top-2 right-4 w-2 h-2 bg-white/60 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-3 left-6 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.2s' }}></div>
-            
-            {/* Arrow indicator */}
-            <ArrowRight className="relative z-10 w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+            <span className="font-medium">Comunidade VIP</span>
+            <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
         </div>
 
-        <div className="text-center mb-8 sm:mb-12 animate-slide-up-legal">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 gradient-text-legal animate-legal-text-glow">
+        <div className="text-center mb-8 sm:mb-12 animate-fade-in">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 gradient-text-legal">
             Ferramentas Jurídicas Profissionais
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
@@ -220,47 +175,37 @@ export const FeaturesGrid = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {sortedFunctions.map((func, index) => {
             const Icon = getUniqueIconForFunction(func.funcao, index);
-            const colorClass = getColorForFunction(index);
             
             return (
               <Card 
                 key={func.id} 
-                className="card-legal group cursor-pointer border-border/30 bg-card/60 backdrop-blur-sm hover:bg-card/90 overflow-hidden animate-scale-glow hover:animate-legal-float"
+                className="card-legal group cursor-pointer overflow-hidden animate-fade-in hover:animate-legal-float"
                 style={{ animationDelay: `${index * 0.05}s` }}
                 onClick={() => handleFunctionClick(func.funcao)}
               >
                 <CardContent className="p-4 sm:p-6 text-center relative">
-                  {/* Enhanced background gradient effect with animation */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-legal-glow" />
+                  {/* Professional background gradient effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl ${colorClass} flex items-center justify-center group-hover:scale-110 transition-all duration-500 card-depth-2 group-hover:card-depth-3 relative animate-legal-shimmer group-hover:animate-legal-icon-glow`}>
-                    <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-amber-400 drop-shadow-lg group-hover:animate-legal-icon-float" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-muted/50 border border-border/50 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-500 relative">
+                    <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-foreground group-hover:text-primary transition-colors duration-300" />
                     
-                    {/* Enhanced hover arrow with legal styling and animation */}
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100 card-depth-1 animate-legal-bounce">
-                      <ArrowRight className="h-2 w-2 sm:h-3 sm:w-3 text-gray-800 animate-legal-arrow-float" />
+                    {/* Professional hover arrow */}
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100 shadow-lg">
+                      <ArrowRight className="h-2 w-2 sm:h-3 sm:w-3 text-primary-foreground" />
                     </div>
-                    
-                    {/* Legal sparkle effect */}
-                    <div className="absolute top-1 right-1 w-2 h-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 animate-legal-sparkle transition-opacity duration-500" />
                   </div>
                   
-                  <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-2 text-foreground group-hover:text-primary transition-colors duration-500 line-clamp-2 group-hover:animate-legal-text-glow group-hover:scale-105">
+                  <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-2 text-foreground group-hover:text-primary transition-colors duration-500 line-clamp-2">
                     {func.funcao}
                   </h3>
                   
-                  <p className="text-xs sm:text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-500 line-clamp-2-fade">
+                  <p className="text-xs sm:text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-500 line-clamp-2">
                     {func.descricao || 'Funcionalidade especializada para estudos jurídicos'}
                   </p>
 
-                  {/* Enhanced interactive border effect with animation */}
-                  <div className="absolute inset-0 rounded-lg border border-primary/0 group-hover:border-primary/30 transition-all duration-500 animate-legal-border" />
-                  
-                  {/* Professional glow effect on hover with animation */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hover-glow-legal animate-legal-hover-glow" />
-                  
-                  {/* Justice-themed corner accent */}
-                  <div className="absolute top-2 right-2 w-1 h-6 bg-gradient-to-b from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-legal-accent" />
+                  {/* Professional interactive border effect */}
+                  <div className="absolute inset-0 rounded-lg border border-primary/0 group-hover:border-primary/20 transition-all duration-500" />
                 </CardContent>
               </Card>
             );
@@ -268,7 +213,7 @@ export const FeaturesGrid = () => {
         </div>
 
         {sortedFunctions.length === 0 && !loading && (
-          <div className="text-center py-12 animate-fade-in-legal">
+          <div className="text-center py-12 animate-fade-in">
             <p className="text-muted-foreground text-lg">
               Nenhuma função encontrada. Verifique a configuração da base de dados.
             </p>
