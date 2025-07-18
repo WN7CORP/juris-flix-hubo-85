@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from 'lucide-react';
 import { useNavigation } from '@/context/NavigationContext';
 
@@ -21,7 +22,7 @@ export const Loja = () => {
             Voltar
           </button>
           <div className="flex-1 text-center">
-            <h1 className="text-lg font-semibold">Loja de Livros Físicos</h1>
+            <h1 className="text-lg font-semibold">Loja de Direito</h1>
           </div>
           <div className="w-20"></div>
         </div>
@@ -32,7 +33,7 @@ export const Loja = () => {
         <iframe 
           src="https://preview--barba-growth-journey-76.lovable.app/"
           className="w-full h-full border-0" 
-          title="Loja de Livros Físicos"
+          title="Loja de Direito"
           sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
           loading="lazy"
         />

@@ -1,7 +1,7 @@
 
 import { FeaturesCarousel } from '@/components/FeaturesCarousel';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
-import { QuickAccessSection } from '@/components/QuickAccessSection';
+import { QuickAccessCarousel } from '@/components/QuickAccessCarousel';
 import { AppFunction } from '@/components/AppFunction';
 import { MobileLayout } from '@/components/MobileLayout';
 import { DesktopLayout } from '@/components/DesktopLayout';
@@ -29,8 +29,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Quick Access Section */}
-      <QuickAccessSection />
+      {/* Quick Access Carousel */}
+      <QuickAccessCarousel />
 
       {/* Features Grid */}
       <FeaturesGrid />
