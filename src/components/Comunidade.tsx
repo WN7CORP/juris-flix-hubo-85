@@ -1,38 +1,49 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Gift, Bell, BookOpen, Star, MessageCircle, Trophy, Zap } from 'lucide-react';
+import { Users, Gift, Bell, BookOpen, Star, MessageCircle, Trophy, Zap, Video, Heart, TrendingUp } from 'lucide-react';
 
 export const Comunidade = () => {
   const benefits = [
     {
       icon: Bell,
-      title: "Novidades em Primeira Mão",
-      description: "Seja o primeiro a saber sobre novas funcionalidades, atualizações e recursos exclusivos da plataforma."
+      title: "Atualizações em Primeira Mão",
+      description: "Seja o primeiro a saber sobre novas funcionalidades, recursos e melhorias da plataforma jurídica."
     },
     {
-      icon: Gift,
-      title: "Cupons de Desconto Exclusivos",
-      description: "Receba cupons especiais para livros, cursos e materiais jurídicos com descontos de até 50%."
+      icon: BookOpen,
+      title: "Recomendações de Livros",
+      description: "Receba indicações exclusivas de livros jurídicos atualizados, doutrina e obras especializadas por área do direito."
     },
     {
-      icon: MessageCircle,
-      title: "Networking Profissional",
-      description: "Conecte-se com advogados, estudantes e profissionais do direito de todo o Brasil."
+      icon: Video,
+      title: "Conteúdo do TikTok",
+      description: "Acompanhe nosso perfil oficial no TikTok com dicas jurídicas, resumos e conteúdo educativo em formato dinâmico."
     },
     {
-      icon: Trophy,
-      title: "Eventos Exclusivos",
-      description: "Participe de webinars, palestras e eventos ao vivo com especialistas renomados do setor jurídico."
+      icon: Star,
+      title: "Recomendações de Filmes",
+      description: "Descubra filmes e documentários jurídicos selecionados para complementar seus estudos e cultura jurídica."
     },
     {
-      icon: Zap,
-      title: "Suporte Prioritário",
-      description: "Atendimento personalizado e suporte técnico com prioridade máxima para membros da comunidade."
+      icon: TrendingUp,
+      title: "Tendências do Direito",
+      description: "Fique por dentro das principais tendências, mudanças legislativas e novidades do mundo jurídico."
+    },
+    {
+      icon: Heart,
+      title: "Conteúdo Exclusivo",
+      description: "Acesse materiais especiais, lives exclusivas e conteúdo premium desenvolvido pela nossa equipe."
     }
   ];
 
   const handleJoinCommunity = () => {
     window.open('https://chat.whatsapp.com/DKlKgHsjHZ97OKUDxEpT6w?mode=r_t', '_blank');
+  };
+
+  const handleTikTokPage = () => {
+    // Aqui você pode colocar o link real do TikTok quando estiver disponível
+    window.open('https://www.tiktok.com/@seuapp', '_blank');
   };
 
   return (
@@ -42,25 +53,25 @@ export const Comunidade = () => {
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-3 bg-emerald-500/10 text-emerald-600 px-6 py-3 rounded-full text-lg font-semibold mb-6 border border-emerald-500/20">
             <Users className="w-6 h-6" />
-            <span>Comunidade Exclusiva</span>
+            <span>Central de Novidades</span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 gradient-text-legal">
-            Faça Parte da Nossa
+            Fique Sempre Atualizado
             <br />
-            <span className="text-emerald-600">Comunidade VIP</span>
+            <span className="text-emerald-600">Com as Novidades</span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Conecte-se com <span className="font-bold text-emerald-600">profissionais do direito</span> de 
-            todo o Brasil e tenha acesso a benefícios exclusivos.
+            Receba <span className="font-bold text-emerald-600">atualizações exclusivas</span>, 
+            recomendações de livros e filmes jurídicos, além de acompanhar nosso conteúdo no TikTok.
           </p>
         </div>
 
         {/* Benefits Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12 gradient-text-legal">
-            Vantagens Exclusivas da Comunidade
+            O Que Você Vai Receber
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,32 +105,45 @@ export const Comunidade = () => {
           </div>
         </div>
 
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <Button 
+            onClick={handleJoinCommunity}
+            size="lg"
+            className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-lg px-10 py-6 rounded-full shadow-xl hover:shadow-emerald-500/25 transform hover:scale-105 transition-all duration-300"
+          >
+            <MessageCircle className="w-6 h-6 mr-3" />
+            Entrar no WhatsApp
+          </Button>
+          
+          <Button 
+            onClick={handleTikTokPage}
+            variant="outline"
+            size="lg"
+            className="border-2 border-pink-500 text-pink-600 hover:bg-pink-500 hover:text-white font-bold text-lg px-10 py-6 rounded-full transition-all duration-300 hover:scale-105"
+          >
+            <Video className="w-6 h-6 mr-3" />
+            Seguir no TikTok
+          </Button>
+        </div>
+
         {/* CTA Section */}
         <div className="text-center bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl p-12 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 via-transparent to-emerald-400/20 animate-pulse"></div>
           <div className="relative z-10">
-            <Star className="w-16 h-16 mx-auto mb-6 text-amber-300" />
+            <Trophy className="w-16 h-16 mx-auto mb-6 text-amber-300" />
             
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Pronto para Fazer Parte?
+              Não Perca Nenhuma Novidade!
             </h2>
             
             <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-              Junte-se agora à nossa comunidade e tenha acesso imediato a todos os benefícios exclusivos. 
-              É gratuito e você pode sair quando quiser!
+              Junte-se à nossa comunidade e seja sempre o primeiro a saber sobre atualizações, 
+              novos recursos e conteúdo exclusivo para profissionais do direito.
             </p>
             
-            <Button 
-              onClick={handleJoinCommunity}
-              size="lg"
-              className="bg-white hover:bg-gray-100 text-emerald-600 hover:text-emerald-700 font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-white/25 transform hover:scale-105 transition-all duration-300"
-            >
-              <MessageCircle className="w-6 h-6 mr-3" />
-              Entrar na Comunidade
-            </Button>
-            
-            <p className="text-emerald-200 text-sm mt-4">
-              🔒 Seu número será mantido em total privacidade
+            <p className="text-emerald-200 text-sm">
+              🔒 Suas informações são mantidas em total privacidade
             </p>
           </div>
           
@@ -131,7 +155,7 @@ export const Comunidade = () => {
         {/* Footer note */}
         <div className="text-center mt-12 text-muted-foreground">
           <p className="text-lg">
-            Dúvidas? Nossa comunidade está sempre pronta para ajudar! 🤝
+            Transforme sua experiência jurídica com conteúdo sempre atualizado! 📚✨
           </p>
         </div>
       </div>
