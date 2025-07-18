@@ -2,6 +2,8 @@
 import { FeaturesCarousel } from '@/components/FeaturesCarousel';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
 import { QuickAccessSection } from '@/components/QuickAccessSection';
+import { QuickStatsBar } from '@/components/QuickStatsBar';
+import { RecentActivityCard } from '@/components/RecentActivityCard';
 import { AppFunction } from '@/components/AppFunction';
 import { MobileLayout } from '@/components/MobileLayout';
 import { DesktopLayout } from '@/components/DesktopLayout';
@@ -22,20 +24,26 @@ const Index = () => {
   // Main content for both mobile and desktop
   const mainContent = (
     <>
-      {/* Carousel Section */}
-      <section className="px-3 sm:px-4 md:px-8 mb-6 sm:mb-8 py-[20px]">
+      {/* Quick Stats Bar - Only Mobile */}
+      {isMobileOrTablet && <QuickStatsBar />}
+
+      {/* Carousel Section - Optimized height */}
+      <section className="px-3 sm:px-4 md:px-8 mb-4 sm:mb-6">
         <div className="max-w-7xl mx-auto">
           <FeaturesCarousel />
         </div>
       </section>
 
-      {/* Quick Access Section */}
+      {/* Quick Access Section - Enhanced for mobile */}
       <QuickAccessSection />
 
-      {/* Features Grid */}
+      {/* Recent Activity - Mobile Only */}
+      {isMobileOrTablet && <RecentActivityCard />}
+
+      {/* Features Grid - Responsive */}
       <FeaturesGrid />
 
-      {/* Enhanced CTA Section - Only for desktop */}
+      {/* Enhanced CTA Section - Desktop Only */}
       {!isMobileOrTablet && (
         <section className="py-16 px-8">
           <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
@@ -76,7 +84,7 @@ const Index = () => {
         </section>
       )}
 
-      {/* Support Section - appears at the bottom of index page */}
+      {/* Support Section - Enhanced for mobile */}
       <SuporteTab />
     </>
   );

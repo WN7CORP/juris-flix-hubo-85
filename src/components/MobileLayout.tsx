@@ -11,18 +11,18 @@ export const MobileLayout = ({ children }: MobileLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col overflow-x-hidden">
-      {/* Mobile Header - responsivo */}
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background/95 flex flex-col overflow-x-hidden">
+      {/* Enhanced Mobile Header - otimizado para conforto */}
       <MobileHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       
-      {/* Main Content with proper spacing for fixed elements */}
-      <main className="flex-1 pt-14 sm:pt-16 pb-20 sm:pb-24 overflow-x-hidden">
-        <div className="w-full max-w-full">
+      {/* Main Content with improved spacing and padding */}
+      <main className="flex-1 pt-16 pb-20 overflow-x-hidden">
+        <div className="w-full max-w-full px-3 space-y-4">
           {children}
         </div>
       </main>
       
-      {/* Bottom Navigation - responsivo */}
+      {/* Enhanced Bottom Navigation */}
       <FooterMenu isVisible={!sidebarOpen} />
     </div>
   );
