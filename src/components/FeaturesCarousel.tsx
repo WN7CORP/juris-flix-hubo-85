@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -104,7 +103,7 @@ export const FeaturesCarousel = () => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % carouselData.length);
-    }, 4000); // Increased time for more content
+    }, 4000);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
@@ -120,7 +119,7 @@ export const FeaturesCarousel = () => {
 
   return (
     <div 
-      className="relative h-[200px] sm:h-[240px] w-full overflow-hidden rounded-2xl shadow-legal card-depth-3" 
+      className="relative h-[160px] sm:h-[180px] md:h-[200px] w-full overflow-hidden rounded-2xl shadow-2xl border border-border/20" 
       onMouseEnter={() => setIsAutoPlaying(false)} 
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -129,82 +128,81 @@ export const FeaturesCarousel = () => {
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 transform" 
         style={{
           backgroundImage: `url(${currentItem.image})`,
-          filter: 'brightness(0.4) contrast(1.1) saturate(0.8)'
+          filter: 'brightness(0.3) contrast(1.1) saturate(0.9)'
         }} 
       />
       
-      {/* Enhanced Legal Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background-deep/95 via-background-deep/70 to-background-deep/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background-deep/90 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-legal/20 via-transparent to-primary/10" />
+      {/* Professional gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-slate-900/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent-legal/10" />
       
-      {/* Content with better positioning and legal styling */}
-      <div className="relative z-10 flex h-full items-center px-6 sm:px-8">
-        <div className="max-w-2xl text-white">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white drop-shadow-2xl animate-fade-in-up gradient-text-legal-light">
+      {/* Content with improved typography and spacing */}
+      <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-8">
+        <div className="max-w-2xl">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-white drop-shadow-2xl animate-fade-in-up">
             {currentItem.title}
           </h1>
           <p 
-            className="text-sm sm:text-base md:text-lg text-gray-100 drop-shadow-lg animate-fade-in-up leading-relaxed" 
+            className="text-sm sm:text-base text-gray-100/90 drop-shadow-lg animate-fade-in-up leading-relaxed" 
             style={{ animationDelay: '0.2s' }}
           >
             {currentItem.description}
           </p>
           
-          {/* Professional accent line */}
+          {/* Elegant accent line */}
           <div 
-            className="mt-4 w-20 h-1 bg-gradient-to-r from-accent-legal to-accent-legal/60 rounded-full animate-fade-in-up" 
+            className="mt-3 sm:mt-4 w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-accent-legal rounded-full animate-fade-in-up shadow-lg" 
             style={{ animationDelay: '0.4s' }} 
           />
         </div>
       </div>
 
-      {/* Enhanced Navigation Arrows with legal styling */}
+      {/* Improved Navigation Arrows */}
       <Button 
         variant="ghost" 
         size="sm" 
         onClick={prevSlide} 
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-0 rounded-full w-10 h-10 p-0"
+        className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-0 rounded-full w-8 h-8 sm:w-10 sm:h-10 p-0 backdrop-blur-sm transition-all duration-300 hover:scale-110"
       >
-        <ChevronLeft className="h-5 w-5" />
+        <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
       </Button>
 
       <Button 
         variant="ghost" 
         size="sm" 
         onClick={nextSlide} 
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-0 rounded-full w-10 h-10 p-0"
+        className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white border-0 rounded-full w-8 h-8 sm:w-10 sm:h-10 p-0 backdrop-blur-sm transition-all duration-300 hover:scale-110"
       >
-        <ChevronRight className="h-5 w-5" />
+        <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
       </Button>
 
-      {/* Enhanced Progress bar with legal styling */}
-      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-background-deep/50">
+      {/* Enhanced Progress bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40">
         <div 
-          className="h-full bg-gradient-to-r from-accent-legal via-primary to-accent-legal transition-all duration-500 shadow-lg shadow-accent-legal/30" 
+          className="h-full bg-gradient-to-r from-primary via-accent-legal to-primary transition-all duration-500 shadow-lg" 
           style={{ width: `${(currentSlide + 1) / carouselData.length * 100}%` }} 
         />
       </div>
 
-      {/* Slide counter */}
-      <div className="absolute top-4 right-4 bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-        {currentSlide + 1} / {carouselData.length}
+      {/* Slide indicators - more visible */}
+      <div className="absolute bottom-4 left-4 sm:left-6 flex gap-1.5 z-20">
+        {carouselData.slice(0, 5).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide % 5 
+                ? 'bg-primary scale-125 shadow-lg shadow-primary/50' 
+                : 'bg-white/50 hover:bg-white/70'
+            }`}
+          />
+        ))}
       </div>
 
-      {/* Subtle particle effect overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-4 right-8 w-2 h-2 bg-accent-legal/40 rounded-full animate-legal-pulse" 
-          style={{ animationDelay: '0s' }} 
-        />
-        <div 
-          className="absolute top-12 right-16 w-1 h-1 bg-white/30 rounded-full animate-legal-pulse" 
-          style={{ animationDelay: '1s' }} 
-        />
-        <div 
-          className="absolute top-8 right-12 w-1.5 h-1.5 bg-accent-legal/30 rounded-full animate-legal-pulse" 
-          style={{ animationDelay: '2s' }} 
-        />
+      {/* Slide counter - improved visibility */}
+      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black/40 backdrop-blur-sm text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium border border-white/20">
+        {currentSlide + 1} / {carouselData.length}
       </div>
     </div>
   );
