@@ -7,14 +7,17 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, User, Mail, CheckCircle, Download, Zap, Shield, Crown, Lock, Star } from 'lucide-react';
+import { Loader2, User, Mail, CheckCircle, Crown, Download, Zap, Shield, Lock, Star } from 'lucide-react';
 import { DesktopPlatformCarousel } from '@/components/DesktopPlatformCarousel';
 import { PremiumRequired } from '@/components/PremiumRequired';
+
 const formSchema = z.object({
   nome: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
   email: z.string().email('Digite um email válido')
 });
+
 type FormData = z.infer<typeof formSchema>;
+
 export const PlataformaDesktop = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -30,27 +33,30 @@ export const PlataformaDesktop = () => {
       email: ''
     }
   });
+
   const onSubmit = async (data: FormData) => {
     setIsLoading(true);
     const scriptURL = 'https://sheetdb.io/api/v1/29eaz3rsm73qu';
+
     try {
       console.log('Dados originais do formulário:', data);
 
-      // Formato específico para SheetDB com colunas nomeadas
       const sheetData = {
         Nome: data.nome,
         email: data.email
       };
       console.log('Dados formatados para SheetDB:', sheetData);
+
       const response = await fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify([sheetData]),
-        // Array com o objeto formatado
         headers: {
           'Content-Type': 'application/json'
         }
       });
+
       console.log('Resposta da API:', response.status, response.statusText);
+
       if (response.ok) {
         const result = await response.json();
         console.log('Dados enviados com sucesso:', result);
@@ -76,8 +82,10 @@ export const PlataformaDesktop = () => {
       setIsLoading(false);
     }
   };
+
   if (isSuccess) {
-    return <div className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
+    return (
+      <div className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
         <Card className="text-center border-0 bg-card/50 backdrop-blur-sm shadow-2xl">
           <CardHeader className="pb-4">
             <div className="mx-auto w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mb-6 animate-scale-in">
@@ -116,8 +124,10 @@ export const PlataformaDesktop = () => {
             </div>
           </CardContent>
         </Card>
-      </div>;
+      </div>
+    );
   }
+
   // Se não for usuário premium, mostrar tela de upgrade
   if (!isPremiumUser) {
     return (
@@ -149,7 +159,8 @@ export const PlataformaDesktop = () => {
     );
   }
   
-  return <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8 py-[21px]">
+  return (
+    <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8 py-[21px]">
       {/* Carrossel de imagens da plataforma */}
       <div className="mb-12">
         <DesktopPlatformCarousel />
@@ -225,41 +236,68 @@ export const PlataformaDesktop = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid sm:grid-cols-2 gap-6">
-                <FormField control={form.control} name="nome" render={({
-                field
-              }) => <FormItem>
+                <FormField
+                  control={form.control}
+                  name="nome"
+                  render={({ field }) => (
+                    <FormItem>
                       <FormLabel className="text-foreground font-semibold flex items-center gap-2 text-base">
                         <User className="w-5 h-5 text-primary" />
                         Nome Completo
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Digite seu nome completo" {...field} className="h-14 text-base bg-background/50 backdrop-blur-sm border-border focus:border-primary transition-all duration-300" disabled={isLoading} />
+                        <Input
+                          placeholder="Digite seu nome completo"
+                          {...field}
+                          className="h-14 text-base bg-background/50 backdrop-blur-sm border-border focus:border-primary transition-all duration-300"
+                          disabled={isLoading}
+                        />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
 
-                <FormField control={form.control} name="email" render={({
-                field
-              }) => <FormItem>
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
                       <FormLabel className="text-foreground font-semibold flex items-center gap-2 text-base">
                         <Mail className="w-5 h-5 text-primary" />
                         E-mail para receber o link
                       </FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="Digite seu melhor e-mail" {...field} className="h-14 text-base bg-background/50 backdrop-blur-sm border-border focus:border-primary transition-all duration-300" disabled={isLoading} />
+                        <Input
+                          type="email"
+                          placeholder="Digite seu melhor e-mail"
+                          {...field}
+                          className="h-14 text-base bg-background/50 backdrop-blur-sm border-border focus:border-primary transition-all duration-300"
+                          disabled={isLoading}
+                        />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>} />
+                    </FormItem>
+                  )}
+                />
               </div>
 
-              <Button type="submit" className="w-full h-16 text-lg font-bold bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0" disabled={isLoading}>
-                {isLoading ? <>
+              <Button
+                type="submit"
+                className="w-full h-16 text-lg font-bold bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-white transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
                     <Loader2 className="w-6 h-6 mr-3 animate-spin" />
                     Enviando para seu email...
-                  </> : <>
+                  </>
+                ) : (
+                  <>
                     <Crown className="w-6 h-6 mr-3" />
                     Receber Link Premium por Email
-                  </>}
+                  </>
+                )}
               </Button>
             </form>
           </Form>
@@ -272,7 +310,6 @@ export const PlataformaDesktop = () => {
               <p className="text-sm text-muted-foreground">
                 ✅ Você receberá o link de acesso por email
               </p>
-              
               <p className="text-sm text-muted-foreground">
                 📧 Verifique também sua caixa de spam
               </p>
@@ -280,5 +317,6 @@ export const PlataformaDesktop = () => {
           </div>
         </CardContent>
       </Card>
-    </div>;
+    </div>
+  );
 };
