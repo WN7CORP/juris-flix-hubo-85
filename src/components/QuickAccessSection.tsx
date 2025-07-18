@@ -55,7 +55,7 @@ export const QuickAccessSection = () => {
             size="sm"
             className="bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 hover:text-yellow-500 border border-yellow-500/30 hover:border-yellow-400/50 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-300"
           >
-            <Edit3 className="w-3 h-3 mr-1" />
+            <Edit3 className="w-3 h-3 mr-1 icon-scale-hover" />
             <span>Editar</span>
           </Button>
         ) : (
@@ -83,13 +83,14 @@ export const QuickAccessSection = () => {
 
       {/* Grid compacto de itens */}
       <div className="flex justify-center items-center gap-6 mt-4">
-        {quickItems.slice(0, 5).map((item) => (
+        {quickItems.slice(0, 5).map((item, index) => (
           <div
             key={item.id}
             className={`group cursor-pointer transition-all duration-300 ${
               isEditing ? 'hover:scale-110' : 'hover:scale-105'
             }`}
             onClick={() => handleItemClick(item)}
+            style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Círculo compacto com ícone */}
             <div className={`w-12 h-12 mx-auto mb-2 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
@@ -97,7 +98,7 @@ export const QuickAccessSection = () => {
                 ? 'border-yellow-500 bg-yellow-500/10 text-yellow-600 shadow-md' 
                 : 'border-border bg-muted text-muted-foreground'
             } ${isEditing ? 'group-hover:border-yellow-500/70 group-hover:bg-yellow-500/15' : 'group-hover:border-yellow-500/50 group-hover:bg-yellow-500/5'}`}>
-              <item.icon className="w-5 h-5" />
+              <item.icon className={`w-5 h-5 icon-hover-bounce ${item.active ? 'icon-pulse-active' : ''}`} />
             </div>
             
             {/* Texto compacto abaixo */}

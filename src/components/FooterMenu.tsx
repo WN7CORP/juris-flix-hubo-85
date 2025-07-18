@@ -112,7 +112,7 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
       }`}>
         <div className="glass-effect-modern rounded-2xl overflow-hidden">
           <div className="flex justify-around items-center px-2 py-2">
-            {menuItems.map((item) => {
+            {menuItems.map((item, index) => {
               const Icon = item.icon;
               const isActive = activeItem === item.id;
               
@@ -121,6 +121,7 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
                   key={item.id}
                   onClick={() => handleItemClick(item)}
                   className={getItemStyles(item, isActive)}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {/* Indicador ativo */}
                   {isActive && (
@@ -129,7 +130,9 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
                   
                   {/* Icon container */}
                   <div className={getIconStyles(item, isActive)}>
-                    <Icon className="h-5 w-5 transition-all duration-300" />
+                    <Icon className={`h-5 w-5 transition-all duration-300 ${
+                      isActive ? 'icon-pulse-active' : 'icon-hover-bounce'
+                    }`} />
                   </div>
                   
                   {/* Label */}
@@ -160,7 +163,7 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
       <div className="mx-3 mb-3">
         <div className="max-w-md mx-auto glass-effect-modern rounded-2xl overflow-hidden">
           <div className="flex justify-around items-center px-0 my-0 mx-0 rounded-none py-0">
-            {menuItems.map((item) => {
+            {menuItems.map((item, index) => {
               const Icon = item.icon;
               const isActive = activeItem === item.id;
               
@@ -169,6 +172,7 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
                   key={item.id}
                   onClick={() => handleItemClick(item)}
                   className={getItemStyles(item, isActive)}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {/* Indicador ativo */}
                   {isActive && (
@@ -177,7 +181,9 @@ export const FooterMenu = ({ isVisible = true }: FooterMenuProps) => {
                   
                   {/* Icon container */}
                   <div className={getIconStyles(item, isActive)}>
-                    <Icon className="h-5 w-5 transition-all duration-300" />
+                    <Icon className={`h-5 w-5 transition-all duration-300 ${
+                      isActive ? 'icon-pulse-active' : 'icon-hover-bounce'
+                    }`} />
                   </div>
                   
                   {/* Label */}

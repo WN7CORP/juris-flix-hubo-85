@@ -163,7 +163,7 @@ export const FeaturesGrid = () => {
             className="group relative overflow-hidden bg-gradient-to-r from-store-primary to-store-secondary hover:from-store-secondary hover:to-store-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-store-primary/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center border border-store-primary/20"
           >
             <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
-              <ShoppingBag className="w-5 h-5 text-white" />
+              <ShoppingBag className="w-5 h-5 text-white icon-hover-bounce" />
             </div>
             <span className="font-medium">Loja de Direito</span>
             <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
@@ -175,7 +175,7 @@ export const FeaturesGrid = () => {
             className="group relative overflow-hidden bg-gradient-to-r from-community-primary to-community-secondary hover:from-community-secondary hover:to-community-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-community-primary/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center border border-community-primary/20"
           >
             <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
-              <Sparkles className="w-5 h-5 text-white" />
+              <Sparkles className="w-5 h-5 text-white icon-hover-bounce" />
             </div>
             <span className="font-medium">Comunidade</span>
             <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
@@ -192,7 +192,7 @@ export const FeaturesGrid = () => {
         </div>
 
         {/* Renderização por categorias */}
-        {Object.entries(groupedFunctions).map(([categoryName, categoryFunctions]) => {
+        {Object.entries(groupedFunctions).map(([categoryName, categoryFunctions], categoryIndex) => {
           if (categoryFunctions.length === 0) return null;
           
           const categoryConfig = categoriesConfig[categoryName as keyof typeof categoriesConfig];
@@ -210,7 +210,7 @@ export const FeaturesGrid = () => {
 
               {/* Grid de funções da categoria */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8">
-                {categoryFunctions.map((func) => {
+                {categoryFunctions.map((func, index) => {
                   const Icon = getIconForFunction(func.funcao, func.id);
                   
                   return (
@@ -218,13 +218,14 @@ export const FeaturesGrid = () => {
                       key={func.id} 
                       className="card-legal group cursor-pointer overflow-hidden animate-fade-in hover:animate-legal-float border-0"
                       onClick={() => handleFunctionClick(func.funcao)}
+                      style={{ animationDelay: `${(categoryIndex * 100) + (index * 50)}ms` }}
                     >
                       <CardContent className="p-4 sm:p-6 text-center relative">
                         {/* Gradient background effect */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${categoryConfig.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500 rounded-lg`} />
                         
                         <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br ${categoryConfig.gradient} flex items-center justify-center group-hover:scale-110 transition-all duration-500 relative shadow-lg`}>
-                          <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-white transition-colors duration-300" />
+                          <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-white transition-colors duration-300 icon-hover-bounce icon-float-gentle" />
                           
                           {/* Professional hover arrow */}
                           <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100 shadow-lg">
