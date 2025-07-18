@@ -53,7 +53,7 @@ export const QuickAccessSection = () => {
             onClick={() => setIsEditing(true)}
             variant="ghost"
             size="sm"
-            className="bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary border border-primary/30 hover:border-primary/50 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-300"
+            className="bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 border border-blue-500/30 hover:border-blue-400/50 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-300"
           >
             <Edit3 className="w-3 h-3 mr-1" />
             <span>Editar</span>
@@ -94,9 +94,9 @@ export const QuickAccessSection = () => {
             {/* Círculo compacto com ícone */}
             <div className={`w-12 h-12 mx-auto mb-2 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               item.active 
-                ? 'border-primary bg-primary/10 text-primary shadow-md' 
+                ? 'border-blue-400 bg-blue-500/10 text-blue-400 shadow-md' 
                 : 'border-border bg-muted text-muted-foreground'
-            } ${isEditing ? 'group-hover:border-primary/70 group-hover:bg-primary/15' : 'group-hover:border-primary/50 group-hover:bg-primary/5'}`}>
+            } ${isEditing ? 'group-hover:border-blue-400/70 group-hover:bg-blue-500/15' : 'group-hover:border-blue-400/50 group-hover:bg-blue-500/5'}`}>
               <item.icon className="w-5 h-5" />
             </div>
             
@@ -111,10 +111,10 @@ export const QuickAccessSection = () => {
             {isEditing && (
               <div className={`mt-1.5 w-3 h-3 mx-auto rounded-full border flex items-center justify-center transition-all duration-200 ${
                 item.active 
-                  ? 'bg-primary border-primary' 
+                  ? 'bg-blue-500 border-blue-500' 
                   : 'border-muted-foreground'
               }`}>
-                {item.active && <Check className="w-2 h-2 text-primary-foreground" />}
+                {item.active && <Check className="w-2 h-2 text-white" />}
               </div>
             )}
           </div>
