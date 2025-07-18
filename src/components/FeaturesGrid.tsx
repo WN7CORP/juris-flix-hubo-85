@@ -169,7 +169,7 @@ export const FeaturesGrid = () => {
             <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
           
-          {/* Botão Novidades - Design profissional */}
+          {/* Botão Comunidade - Design profissional */}
           <button
             onClick={() => setCurrentFunction('Comunidade')}
             className="group relative overflow-hidden bg-gradient-to-r from-community-primary to-community-secondary hover:from-community-secondary hover:to-community-primary text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-community-primary/25 transform hover:scale-[1.02] transition-all duration-500 flex items-center gap-4 min-w-[280px] justify-center border border-community-primary/20"
@@ -177,7 +177,7 @@ export const FeaturesGrid = () => {
             <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="font-medium">Novidades & Atualizações</span>
+            <span className="font-medium">Comunidade</span>
             <ArrowRight className="w-5 h-5 text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
           </button>
         </div>
