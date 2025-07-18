@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
-import { Edit3, Settings, Palette, Check, X, Scale, Briefcase, Monitor, Headphones, BookOpen } from 'lucide-react';
+import { Edit3, Settings, Palette, Layout, Check, X, Scale, Briefcase, Monitor, Headphones, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 
 export const QuickAccessSection = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -23,19 +24,21 @@ export const QuickAccessSection = () => {
 
   const handleSave = () => {
     setIsEditing(false);
+    // Aqui você salvaria as configurações
   };
 
   const handleCancel = () => {
     setIsEditing(false);
+    // Aqui você restauraria as configurações originais
   };
 
   return (
-    <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 mx-3 sm:mx-4 md:mx-8 mb-6">
-      <div className="flex items-center justify-between mb-4">
+    <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800 text-center">
+      <div className="flex items-center justify-between mb-6">
         <div className="flex-1"></div>
         <div className="text-center">
-          <h3 className="text-xl font-bold text-yellow-400 mb-1">Acesso Rápido</h3>
-          <p className="text-gray-400 text-xs">Funcionalidades mais utilizadas</p>
+          <h3 className="text-2xl font-bold text-yellow-400 mb-2">Acesso Rápido</h3>
+          <p className="text-gray-400 text-sm">Funcionalidades mais utilizadas por profissionais do Direito</p>
         </div>
         
         {!isEditing ? (
@@ -43,56 +46,60 @@ export const QuickAccessSection = () => {
             onClick={() => setIsEditing(true)}
             variant="ghost"
             size="sm"
-            className="text-primary hover:text-primary/80 border border-primary/20 hover:border-primary/40 rounded-lg px-3 py-1.5 text-sm transition-all duration-200"
+            className="group relative overflow-hidden bg-gradient-to-r from-primary/10 to-accent-legal/10 hover:from-primary/20 hover:to-accent-legal/20 text-primary hover:text-primary border border-primary/20 hover:border-primary/40 rounded-xl px-4 py-2 font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20"
           >
-            <Edit3 className="w-3 h-3 mr-1" />
-            <span className="hidden sm:inline">Personalizar</span>
-            <Palette className="w-3 h-3 ml-1 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent-legal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+            
+            <div className="relative flex items-center gap-2">
+              <Edit3 className="w-4 h-4 group-hover:animate-pulse" />
+              <span>Personalizar</span>
+              <Palette className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
           </Button>
         ) : (
           <div className="flex items-center gap-2">
             <Button
               onClick={handleSave}
               size="sm"
-              className="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-1.5 rounded-lg"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium px-4 py-2 rounded-xl shadow-lg hover:shadow-green-500/25 transition-all duration-300"
             >
-              <Check className="w-3 h-3 mr-1" />
+              <Check className="w-4 h-4 mr-1" />
               Salvar
             </Button>
             <Button
               onClick={handleCancel}
               variant="ghost"
               size="sm"
-              className="text-gray-400 hover:text-red-400 border border-gray-600 hover:border-red-400/40 rounded-lg px-3 py-1.5 text-xs"
+              className="text-muted-foreground hover:text-destructive border border-border hover:border-destructive/40 rounded-xl px-4 py-2 transition-all duration-300"
             >
-              <X className="w-3 h-3 mr-1" />
+              <X className="w-4 h-4 mr-1" />
               Cancelar
             </Button>
           </div>
         )}
       </div>
 
-      {/* Grid compacto - igual à imagem */}
-      <div className="flex justify-center items-center gap-6">
+      {/* Grid de itens - exatamente como na imagem */}
+      <div className="flex justify-center items-center gap-8 mt-8">
         {quickItems.slice(0, 5).map((item) => (
           <div
             key={item.id}
-            className={`group cursor-pointer transition-all duration-200 ${
-              isEditing ? 'hover:scale-105' : 'hover:scale-102'
+            className={`group cursor-pointer transition-all duration-300 ${
+              isEditing ? 'hover:scale-110' : 'hover:scale-105'
             }`}
             onClick={() => isEditing && toggleItem(item.id)}
           >
-            {/* Círculo com ícone - compacto */}
-            <div className={`w-12 h-12 mx-auto mb-2 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+            {/* Círculo com ícone */}
+            <div className={`w-16 h-16 mx-auto mb-3 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               item.active 
                 ? 'border-yellow-400 bg-yellow-400/10 text-yellow-400' 
                 : 'border-gray-600 bg-gray-800 text-gray-500'
-            } ${isEditing ? 'group-hover:border-yellow-300' : ''}`}>
-              <item.icon className="w-5 h-5" />
+            } ${isEditing ? 'group-hover:border-yellow-300 group-hover:bg-yellow-400/20' : ''}`}>
+              <item.icon className="w-7 h-7" />
             </div>
             
-            {/* Texto compacto */}
-            <p className={`text-xs font-medium max-w-16 mx-auto leading-tight text-center ${
+            {/* Texto abaixo */}
+            <p className={`text-sm font-medium max-w-20 mx-auto leading-tight ${
               item.active ? 'text-white' : 'text-gray-500'
             }`}>
               {item.title}
@@ -100,12 +107,12 @@ export const QuickAccessSection = () => {
             
             {/* Checkbox para modo de edição */}
             {isEditing && (
-              <div className={`mt-1 w-3 h-3 mx-auto rounded-full border flex items-center justify-center ${
+              <div className={`mt-2 w-4 h-4 mx-auto rounded-full border-2 flex items-center justify-center ${
                 item.active 
                   ? 'bg-yellow-400 border-yellow-400' 
                   : 'border-gray-500'
               } transition-all duration-200`}>
-                {item.active && <Check className="w-2 h-2 text-gray-900" />}
+                {item.active && <Check className="w-3 h-3 text-gray-900" />}
               </div>
             )}
           </div>
@@ -113,8 +120,8 @@ export const QuickAccessSection = () => {
       </div>
 
       {isEditing && (
-        <p className="text-xs text-gray-400 mt-3 text-center">
-          💡 Clique nos itens para ativar/desativar
+        <p className="text-sm text-gray-400 mt-6 text-center">
+          💡 Clique nos itens para ativar/desativar no seu acesso rápido
         </p>
       )}
     </div>
