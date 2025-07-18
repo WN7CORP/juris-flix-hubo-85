@@ -1,9 +1,8 @@
 
 import { FeaturesCarousel } from '@/components/FeaturesCarousel';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
-import { QuickAccessSection } from '@/components/QuickAccessSection';
+import { QuickAccessCarousel } from '@/components/QuickAccessCarousel';
 import { QuickStatsBar } from '@/components/QuickStatsBar';
-import { RecentActivityCard } from '@/components/RecentActivityCard';
 import { AppFunction } from '@/components/AppFunction';
 import { MobileLayout } from '@/components/MobileLayout';
 import { DesktopLayout } from '@/components/DesktopLayout';
@@ -34,11 +33,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Quick Access Section - Enhanced for mobile */}
-      <QuickAccessSection />
-
-      {/* Recent Activity - Mobile Only */}
-      {isMobileOrTablet && <RecentActivityCard />}
+      {/* Quick Access Carousel - Enhanced for all devices */}
+      <QuickAccessCarousel />
 
       {/* Features Grid - Responsive */}
       <FeaturesGrid />

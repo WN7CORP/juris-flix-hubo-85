@@ -1,81 +1,112 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced Legal Studies App - Professional Juridical Color Palette */
-
 @layer base {
   :root {
-    /* Professional Juridical Color Palette - Modern and Sophisticated */
-    --background: 222 25% 7%;              /* Deep professional background */
-    --foreground: 210 30% 98%;             /* Crisp white text */
-
-    --card: 222 20% 10%;                   /* Elegant card background */
-    --card-foreground: 210 30% 96%;
-
-    --popover: 222 20% 10%;
-    --popover-foreground: 210 30% 96%;
-
-    /* Sophisticated gold accent - more refined for legal context */
-    --primary: 45 93% 58%;                 /* Refined gold - professional but not gaudy */
-    --primary-foreground: 222 25% 8%;
-
-    --secondary: 222 20% 14%;              /* Professional secondary */
-    --secondary-foreground: 210 30% 94%;
-
-    --muted: 222 20% 12%;
-    --muted-foreground: 215 15% 65%;
-
-    --accent: 45 93% 58%;                  /* Refined gold accent */
-    --accent-foreground: 222 25% 8%;
-    --accent-legal: 45 93% 58%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 210 30% 98%;
-
-    --border: 222 20% 20%;                 /* Professional visible borders */
-    --input: 222 20% 14%;
-    --ring: 45 93% 58%;
-
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
     --radius: 0.75rem;
+    
+    /* Enhanced Design System Variables */
+    --accent-legal: 43 74% 66%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+    
+    /* Sidebar Variables */
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222.2 84% 4.9%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 212.7 26.8% 83.9%;
+    
+    /* Store Colors */
+    --store-primary: 217 91% 60%;
+    --store-secondary: 221 83% 53%;
+    --store-accent: 212 95% 68%;
+    
+    /* Community Colors */
+    --community-primary: 142 76% 36%;
+    --community-secondary: 138 76% 32%;
+    --community-accent: 134 81% 46%;
+    
+    /* Premium Colors */
+    --premium-primary: 262 83% 58%;
+    --premium-secondary: 255 91% 67%;
+    --premium-accent: 270 95% 75%;
+    
+    /* Footer Menu Colors */
+    --footer-bg: 222.2 84% 6%;
+    --footer-border: 217.2 32.6% 20%;
+    --footer-active: 210 40% 98%;
+    --footer-hover: 217.2 32.6% 25%;
+    
+    /* Enhanced variables for better comfort */
+    --background-deep: 220 27% 4%;
+    --card-elevated: 220 15% 8%;
+    --glass-overlay: rgba(255, 255, 255, 0.05);
+    --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
 
-    /* Enhanced sidebar colors - more professional */
-    --sidebar-background: 222 25% 8%;
-    --sidebar-foreground: 210 30% 94%;
-    --sidebar-primary: 45 93% 58%;
-    --sidebar-primary-foreground: 222 25% 8%;
-    --sidebar-accent: 222 20% 14%;
-    --sidebar-accent-foreground: 210 30% 94%;
-    --sidebar-border: 222 20% 20%;
-    --sidebar-ring: 45 93% 58%;
-
-    /* Professional color palette for legal context */
-    --background-deep: 222 30% 4%;
-    --success: 142 69% 38%;                /* Professional green */
-    --warning: 35 91% 55%;                 /* Balanced orange */
-    --info: 213 94% 68%;                   /* Professional blue */
+  [data-theme="light"] {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     
-    /* Store colors - Professional Blue */
-    --store-primary: 213 94% 68%;
-    --store-secondary: 213 87% 58%;
-    --store-accent: 213 100% 78%;
-    
-    /* Community colors - Professional Green */  
-    --community-primary: 142 69% 38%;
-    --community-secondary: 142 62% 28%;
-    --community-accent: 142 76% 48%;
-    
-    /* Premium colors - Sophisticated Purple */
-    --premium-primary: 262 73% 57%;
-    --premium-secondary: 262 66% 47%;
-    --premium-accent: 45 93% 58%;
-    
-    /* Footer menu colors - refined */
-    --footer-bg: 222 25% 9%;
-    --footer-border: 222 20% 18%;
-    --footer-active: 45 93% 58%;
-    --footer-hover: 222 20% 16%;
+    /* Light mode enhanced variables */
+    --background-deep: 210 20% 98%;
+    --card-elevated: 0 0% 97%;
+    --glass-overlay: rgba(0, 0, 0, 0.02);
+    --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -83,215 +114,222 @@
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    /* Improved mobile scrolling */
-    -webkit-overflow-scrolling: touch;
   }
-
-  /* Enhanced scrollbar with professional styling */
-  ::-webkit-scrollbar {
-    width: 6px;
+  
+  html {
+    scroll-behavior: smooth;
   }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
+  
+  /* Safe areas for mobile devices */
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top);
   }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
-    border-radius: 3px;
+  
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.7);
+  
+  .safe-area-pl {
+    padding-left: env(safe-area-inset-left);
   }
+  
+  .safe-area-pr {
+    padding-right: env(safe-area-inset-right);
+  }
+}
 
-  /* Hide scrollbar on mobile */
-  @media (max-width: 768px) {
-    ::-webkit-scrollbar {
-      display: none;
+/* Enhanced Typography */
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent-legal to-primary bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-legal {
+    @apply bg-gradient-to-r from-accent-legal via-primary to-accent-legal bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-legal-light {
+    @apply bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent;
+  }
+}
+
+/* Enhanced Card Styles */
+@layer components {
+  .card-depth-1 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-depth-2 {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-depth-3 {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .elevated-card {
+    background: hsl(var(--card-elevated));
+    box-shadow: var(--shadow-elevation);
+  }
+}
+
+/* Enhanced Shadows */
+@layer utilities {
+  .shadow-legal {
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
+  }
+  
+  .shadow-store {
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+  }
+  
+  .shadow-community {
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.15);
+  }
+  
+  .shadow-premium {
+    box-shadow: 0 4px 20px rgba(147, 51, 234, 0.15);
+  }
+}
+
+/* Enhanced Animations */
+@layer utilities {
+  .animate-legal-pulse {
+    animation: legal-pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes legal-pulse {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
     }
-    
-    * {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes gentle-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+  
+  .animate-slide-up-gentle {
+    animation: slide-up-gentle 0.4s ease-out;
+  }
+  
+  @keyframes slide-up-gentle {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
 
-/* Professional gradient styles */
-.gradient-store {
-  background: linear-gradient(135deg, hsl(var(--store-primary)), hsl(var(--store-accent)));
+/* Enhanced Scroll Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.gradient-community {
-  background: linear-gradient(135deg, hsl(var(--community-primary)), hsl(var(--community-accent)));
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
 }
 
-.gradient-premium {
-  background: linear-gradient(135deg, hsl(var(--premium-primary)), hsl(var(--premium-accent)));
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+  transition: background 0.2s ease;
 }
 
-.gradient-legal {
-  background: linear-gradient(135deg, hsl(var(--accent-legal)), hsl(var(--primary)));
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-legal)));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Enhanced glass effect for mobile */
-.glass-effect-modern {
-  backdrop-filter: blur(20px);
-  background: hsl(var(--card) / 0.85);
-  border: 1px solid hsl(var(--border));
-  box-shadow: 
-    0 8px 32px hsl(var(--background) / 0.3),
-    inset 0 1px 0 hsl(var(--foreground) / 0.1);
-}
-
-/* Mobile-optimized animations */
-@keyframes mobile-bounce {
-  0%, 100% {
-    transform: translateY(0);
+/* Enhanced Interactive Elements */
+@layer components {
+  .interactive-scale {
+    @apply transition-transform duration-200 active:scale-95;
   }
-  50% {
-    transform: translateY(-2px);
+  
+  .interactive-glow {
+    @apply transition-all duration-300 hover:shadow-lg;
   }
-}
-
-@keyframes mobile-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
+  
+  .carousel-slide {
+    @apply transition-all duration-500 ease-in-out;
   }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
+  
+  .carousel-indicator {
+    @apply w-2 h-2 rounded-full transition-all duration-300 cursor-pointer;
+  }
+  
+  .carousel-nav-button {
+    @apply w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background/90 border border-border/50 transition-all duration-300 flex items-center justify-center;
   }
 }
 
-@keyframes mobile-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .touch-optimized {
+    min-height: 44px;
+    min-width: 44px;
   }
-  50% {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
-  }
-}
-
-.animate-mobile-bounce {
-  animation: mobile-bounce 0.6s ease-in-out;
-}
-
-.animate-mobile-pulse {
-  animation: mobile-pulse 2s ease-in-out infinite;
-}
-
-.animate-mobile-glow {
-  animation: mobile-glow 2s ease-in-out infinite;
-}
-
-/* Touch-optimized button styles */
-.btn-touch {
-  min-height: 44px;
-  min-width: 44px;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Active states for mobile */
-.active-scale {
-  transition: transform 0.1s ease-out;
-}
-
-.active-scale:active {
-  transform: scale(0.95);
-}
-
-/* Safe area utilities for mobile */
-.safe-area-pt {
-  padding-top: env(safe-area-inset-top);
-}
-
-.safe-area-pb {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.safe-area-pb-legal {
-  padding-bottom: max(env(safe-area-inset-bottom), 8px);
-}
-
-/* Enhanced card styles for mobile */
-.card-mobile {
-  background: hsl(var(--card) / 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid hsl(var(--border) / 0.5);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-  touch-action: manipulation;
-}
-
-.card-mobile:active {
-  transform: scale(0.98);
-  background: hsl(var(--card) / 0.9);
-}
-
-/* Typography optimizations for mobile */
-@media (max-width: 640px) {
-  .text-responsive-xs { font-size: 0.75rem; }
-  .text-responsive-sm { font-size: 0.875rem; }
-  .text-responsive-base { font-size: 1rem; }
-  .text-responsive-lg { font-size: 1.125rem; }
-  .text-responsive-xl { font-size: 1.25rem; }
-}
-
-/* Loading and skeleton states */
-.skeleton {
-  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted) / 0.5) 50%, hsl(var(--muted)) 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  
+  .mobile-padding {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  :root {
-    --border: 222 20% 30%;
-    --muted-foreground: 215 15% 75%;
+/* Focus States for Accessibility */
+@layer base {
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+  
+  button:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
   }
 }
 
-/* Dark mode optimizations for mobile */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 222 25% 7%;
-    --foreground: 210 30% 98%;
-    --card: 222 20% 10%;
-    --border: 222 20% 20%;
+/* Enhanced Haptic Feedback Simulation */
+@layer utilities {
+  .haptic-light {
+    @apply active:scale-98 transition-transform duration-75;
+  }
+  
+  .haptic-medium {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+  
+  .haptic-heavy {
+    @apply active:scale-90 transition-transform duration-150;
   }
 }
