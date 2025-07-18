@@ -185,49 +185,9 @@ export const AppFunction = () => {
     );
   }
 
-  // Para todas as outras funções da tabela APP que têm link válido, verificar se é premium
+  // Para todas as outras funções da tabela APP que têm link válido, renderizar diretamente
   if (functionData && functionData.link && functionData.link.trim() !== '') {
     console.log('AppFunction - Renderizando iframe para:', functionData.funcao, 'Link:', functionData.link);
-    
-    // Verificar se precisa de premium (simulando - na implementação real, você pegaria do Supabase/localStorage)
-    const isPremiumUser = false; // TODO: Implementar verificação real do status premium
-    
-    if (!isPremiumUser) {
-      return (
-        <div className="min-h-screen bg-background">
-          {/* Header with back button */}
-          <header className="fixed top-0 left-0 right-0 z-40 glass-effect border-b border-border/30">
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 sm:py-4 py-[10px]">
-              <div className="flex items-center gap-2 sm:gap-4">
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={handleBack} 
-                  className="text-foreground hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 hover:scale-110 h-8 w-8 sm:h-10 sm:w-10"
-                >
-                  <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-                </Button>
-                <div>
-                  <h1 className="text-lg sm:text-xl font-bold gradient-text">
-                    {functionData.funcao}
-                  </h1>
-                  {functionData.descricao && (
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      {functionData.descricao}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          </header>
-
-          {/* Premium Required Content */}
-          <main className="pt-16 sm:pt-20">
-            <PremiumRequired functionName={functionData.funcao} />
-          </main>
-        </div>
-      );
-    }
     
     return (
       <div className="min-h-screen bg-background">
