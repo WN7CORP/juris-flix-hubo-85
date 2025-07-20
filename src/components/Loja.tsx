@@ -147,8 +147,8 @@ export const Loja = () => {
             </div>
           </div>
 
-          {/* Grid de Benefícios */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* Grid de Benefícios - Layout mais compacto */}
+          <div className="grid grid-cols-1 gap-4 mb-8 max-w-md mx-auto">
             <div className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <div className="w-12 h-12 bg-community-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">📚</span>
@@ -231,8 +231,8 @@ export const Loja = () => {
         </div>
       )}
 
-      {/* Componente de Suporte WhatsApp Flutuante */}
-      <WhatsAppSupport />
+      {/* Componente de Suporte WhatsApp Flutuante - apenas quando showIntro é true */}
+      {showIntro && <WhatsAppSupport />}
     </div>
   );
 };
