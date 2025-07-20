@@ -2,13 +2,41 @@
 import { useState } from 'react';
 import { MessageCircle, X, Phone } from 'lucide-react';
 
+const messageOptions = [
+  {
+    id: 'duvidas',
+    title: 'Tenho dúvidas sobre produtos',
+    message: 'Olá! Vim através da Loja de Direito e tenho algumas dúvidas sobre os produtos disponíveis. Podem me ajudar?'
+  },
+  {
+    id: 'pedido',
+    title: 'Acompanhar meu pedido',
+    message: 'Olá! Gostaria de acompanhar o status do meu pedido feito na Loja de Direito. Podem me dar informações?'
+  },
+  {
+    id: 'suporte',
+    title: 'Preciso de suporte técnico',
+    message: 'Olá! Estou com dificuldades técnicas relacionadas aos produtos da Loja de Direito. Podem me dar suporte?'
+  },
+  {
+    id: 'recomendacao',
+    title: 'Quero recomendações personalizadas',
+    message: 'Olá! Gostaria de receber recomendações personalizadas de produtos da Loja de Direito para meus estudos jurídicos.'
+  },
+  {
+    id: 'outro',
+    title: 'Outro assunto',
+    message: 'Olá! Vim através da Loja de Direito e gostaria de conversar sobre outros assuntos relacionados.'
+  }
+];
+
 export const WhatsAppSupport = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleWhatsAppClick = () => {
+  const handleWhatsAppClick = (message: string) => {
     const phoneNumber = '5511991897603'; // Formato internacional
-    const message = encodeURIComponent('Olá! Vim através da Loja de Direito e gostaria de tirar algumas dúvidas.');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
     setIsModalOpen(false);
   };
@@ -27,7 +55,7 @@ export const WhatsAppSupport = () => {
       {/* Modal de Suporte */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 animate-scale-in">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 animate-scale-in max-h-[90vh] overflow-y-auto">
             {/* Header do Modal */}
             <div className="bg-gradient-to-r from-[#25D366] to-[#20BA5A] text-white p-6 rounded-t-2xl relative">
               <button
@@ -43,7 +71,7 @@ export const WhatsAppSupport = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Suporte Loja de Direito</h3>
-                  <p className="text-white/90 text-sm">Estamos aqui para ajudar!</p>
+                  <p className="text-white/90 text-sm">Escolha o assunto da sua mensagem</p>
                 </div>
               </div>
             </div>
@@ -51,42 +79,39 @@ export const WhatsAppSupport = () => {
             {/* Conteúdo do Modal */}
             <div className="p-6">
               <p className="text-gray-700 mb-4">
-                Entre em contato conosco através do WhatsApp para:
+                Selecione uma das opções abaixo e sua mensagem será enviada automaticamente:
               </p>
 
+              {/* Opções de Mensagens */}
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 text-gray-600">
-                  <div className="w-2 h-2 bg-[#25D366] rounded-full"></div>
-                  <span>Tirar dúvidas sobre nossos produtos</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-600">
-                  <div className="w-2 h-2 bg-[#25D366] rounded-full"></div>
-                  <span>Acompanhar o status do seu pedido</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-600">
-                  <div className="w-2 h-2 bg-[#25D366] rounded-full"></div>
-                  <span>Receber suporte técnico especializado</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-600">
-                  <div className="w-2 h-2 bg-[#25D366] rounded-full"></div>
-                  <span>Solicitar recomendações personalizadas</span>
-                </div>
+                {messageOptions.map((option) => (
+                  <button
+                    key={option.id}
+                    onClick={() => handleWhatsAppClick(option.message)}
+                    className="w-full text-left p-4 border border-gray-200 rounded-xl hover:bg-[#25D366]/5 hover:border-[#25D366]/30 transition-all duration-200 group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-[#25D366]/20 group-hover:bg-[#25D366] rounded-full transition-colors duration-200"></div>
+                      <div>
+                        <h4 className="font-medium text-gray-900 group-hover:text-[#25D366] transition-colors">
+                          {option.title}
+                        </h4>
+                        <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                          {option.message}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                ))}
               </div>
 
-              {/* Botões */}
-              <div className="flex gap-3">
+              {/* Botão Fechar */}
+              <div className="flex justify-center">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 py-3 px-4 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors"
+                  className="px-6 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors"
                 >
                   Fechar
-                </button>
-                <button
-                  onClick={handleWhatsAppClick}
-                  className="flex-1 py-3 px-4 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-xl transition-colors flex items-center justify-center gap-2 font-medium"
-                >
-                  <Phone className="h-4 w-4" />
-                  Conversar Agora
                 </button>
               </div>
 
