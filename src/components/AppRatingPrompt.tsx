@@ -8,29 +8,59 @@ import { useDeviceDetection } from '@/hooks/useDeviceDetection';
 export const AppRatingPrompt = () => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [userIP, setUserIP] = useState<string>('');
   const { deviceType } = useDeviceDetection();
 
-  useEffect(() => {
-    // Verificar se já foi mostrado antes
-    const hasBeenPrompted = localStorage.getItem('app-rating-prompted');
-    const hasBeenDismissed = localStorage.getItem('app-rating-dismissed');
-    const hasCompleted = localStorage.getItem('app-rating-completed');
-
-    if (hasBeenPrompted || hasBeenDismissed || hasCompleted) {
-      return;
+  // Função para obter o IP do usuário
+  const getUserIP = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.log('Erro ao obter IP:', error);
+      return 'unknown';
     }
+  };
 
-    // Timer de 3 minutos (180000ms)
-    const timer = setTimeout(() => {
-      setShowPrompt(true);
-      setTimeout(() => setIsVisible(true), 100); // Delay para animação suave
-    }, 180000);
+  useEffect(() => {
+    const initializeRatingPrompt = async () => {
+      const ip = await getUserIP();
+      setUserIP(ip);
 
-    return () => clearTimeout(timer);
+      // Verificar se já foi mostrado para este IP nos últimos 7 dias
+      const lastPromptDate = localStorage.getItem(`app-rating-${ip}`);
+      const hasCompleted = localStorage.getItem(`app-rating-completed-${ip}`);
+
+      if (hasCompleted) {
+        return; // Se já avaliou, nunca mais mostrar
+      }
+
+      if (lastPromptDate) {
+        const daysSinceLastPrompt = (Date.now() - parseInt(lastPromptDate)) / (1000 * 60 * 60 * 24);
+        if (daysSinceLastPrompt < 7) {
+          return; // Se mostrou há menos de 7 dias, não mostrar
+        }
+      }
+
+      // Timer de 3 minutos (180000ms)
+      const timer = setTimeout(() => {
+        setShowPrompt(true);
+        setTimeout(() => setIsVisible(true), 100);
+        // Registrar que foi mostrado para este IP
+        localStorage.setItem(`app-rating-${ip}`, Date.now().toString());
+      }, 180000);
+
+      return () => clearTimeout(timer);
+    };
+
+    initializeRatingPrompt();
   }, []);
 
   const handleRate = () => {
-    localStorage.setItem('app-rating-completed', 'true');
+    if (userIP) {
+      localStorage.setItem(`app-rating-completed-${userIP}`, 'true');
+    }
     
     // Detectar plataforma e redirecionar
     const userAgent = navigator.userAgent.toLowerCase();
@@ -64,16 +94,14 @@ export const AppRatingPrompt = () => {
   };
 
   const handleLater = () => {
-    localStorage.setItem('app-rating-prompted', 'true');
-    // Remove após 24 horas para perguntar novamente
-    setTimeout(() => {
-      localStorage.removeItem('app-rating-prompted');
-    }, 24 * 60 * 60 * 1000);
+    // Já foi registrado que apareceu, então só fecha
     handleClose();
   };
 
   const handleDismiss = () => {
-    localStorage.setItem('app-rating-dismissed', 'true');
+    if (userIP) {
+      localStorage.setItem(`app-rating-completed-${userIP}`, 'true');
+    }
     handleClose();
   };
 

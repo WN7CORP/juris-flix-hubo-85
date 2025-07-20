@@ -1,4 +1,3 @@
-
 import { ArrowLeft, ShoppingBag, Copy, Check } from 'lucide-react';
 import { useNavigation } from '@/context/NavigationContext';
 import { useState } from 'react';
@@ -24,7 +23,8 @@ export const Loja = () => {
     setIsLoading(true);
     // Simular carregamento suave
     setTimeout(() => {
-      setShowIntro(false);
+      // Redirecionar para o novo link da loja
+      window.open('https://appdireitoestudos.vercel.app/', '_blank');
       setIsLoading(false);
     }, 800);
   };
