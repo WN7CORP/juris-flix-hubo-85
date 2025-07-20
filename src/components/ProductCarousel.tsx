@@ -58,7 +58,7 @@ export const ProductCarousel = () => {
               <div className="relative group">
                 <img
                   src={produto.produtos}
-                  alt={produto.nome}
+                  alt={`Produto ${produto.id}`}
                   className="w-full h-20 object-cover rounded-md shadow-sm group-hover:shadow-md transition-shadow duration-200"
                   onError={(e) => {
                     e.currentTarget.src = '/placeholder.svg';
@@ -66,7 +66,7 @@ export const ProductCarousel = () => {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 rounded-md flex items-center justify-center">
                   <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center px-1">
-                    {produto.nome}
+                    Produto #{produto.id}
                   </span>
                 </div>
               </div>

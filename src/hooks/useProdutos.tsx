@@ -3,8 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Produto {
-  id: string;
-  nome: string;
+  id: number;
   produtos: string; // URL da imagem
   preco?: number;
   descricao?: string;
@@ -17,8 +16,7 @@ export const useProdutos = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('produtos')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .select('*');
 
       if (error) {
         console.error('Erro ao buscar produtos:', error);
