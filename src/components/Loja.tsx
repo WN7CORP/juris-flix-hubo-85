@@ -66,99 +66,124 @@ export const Loja = () => {
       </header>
 
       {showIntro ? (
-        /* Tela de Introdução Compacta */
-        <div className="container mx-auto px-4 py-4 max-w-2xl">
-          {/* Header com ícone */}
-          <div className="text-center mb-4">
-            <div className="gradient-store w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center animate-store-glow">
-              <ShoppingBag className="h-6 w-6 text-white" />
-            </div>
-            <h2 className="text-xl font-bold mb-2 gradient-text-legal">
-              Produtos Selecionados para Seus Estudos
-            </h2>
-          </div>
-
-          {/* Card do Desconto e Botão - Seção Principal */}
-          <div className="card-legal rounded-xl p-4 mb-4 text-center relative overflow-hidden animate-scale-in">
-            <div className="absolute inset-0 gradient-store opacity-10 animate-legal-shimmer"></div>
-            <div className="relative z-10">
-              <h3 className="text-lg font-bold mb-3 text-store-primary">
-                🎉 Oferta Exclusiva para Usuários do App!
-              </h3>
-              
-              {/* Desconto e Cupom */}
-              <div className="bg-store-primary/10 border border-store-primary/30 rounded-lg p-3 mb-3 animate-premium-glow">
-                <p className="text-base font-semibold mb-2">
-                  Ganhe <span className="text-store-primary text-lg font-bold">10% de desconto</span> na sua primeira compra!
-                </p>
-                <div 
-                  className="bg-green-600 text-white px-3 py-2 rounded-lg inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
-                  onClick={handleCopyCoupon}
-                >
-                  <code className="text-sm font-mono font-bold">WN7PR10</code>
-                  {copiedCoupon ? (
-                    <Check className="h-4 w-4 animate-scale-in" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </div>
-                <p className="text-xs text-muted-foreground mt-2">
-                  Clique no código para copiá-lo
-                </p>
-              </div>
-
-              {/* Botão Principal */}
-              <button
-                onClick={handleEnterStore}
-                disabled={isLoading}
-                className="btn-store px-5 py-2.5 rounded-xl text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse w-full justify-center"
-              >
-                {isLoading ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Carregando...
-                  </>
-                ) : (
-                  <>
-                    <ShoppingBag className="h-4 w-4" />
-                    Entrar na Loja de Direito
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Carrossel de Produtos */}
-          <div className="mb-4">
+        /* Tela de Introdução Redesenhada */
+        <div className="container mx-auto px-4 py-6 max-w-4xl">
+          
+          {/* Carrossel de Produtos em Destaque no Topo */}
+          <div className="mb-8">
             <ProductCarousel />
           </div>
 
-          {/* Benefícios Compactos */}
-          <div className="grid grid-cols-3 gap-3 mb-3">
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="w-8 h-8 bg-community-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-base">📚</span>
-              </div>
-              <p className="text-xs font-medium">Livros Especializados</p>
+          {/* Seção Principal com Título e Botão de Destaque */}
+          <div className="text-center mb-8">
+            <div className="gradient-store w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center animate-store-glow shadow-lg">
+              <ShoppingBag className="h-8 w-8 text-white" />
             </div>
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="w-8 h-8 bg-premium-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-base">📝</span>
+            
+            <h1 className="text-3xl font-bold mb-3 gradient-text-legal">
+              Loja de Direito
+            </h1>
+            
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Produtos especializados selecionados para potencializar seus estudos jurídicos
+            </p>
+
+            {/* Botão Principal de Destaque */}
+            <button
+              onClick={handleEnterStore}
+              disabled={isLoading}
+              className="btn-store px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse shadow-2xl transform hover:scale-105 transition-all duration-300 mb-8"
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Carregando Loja...
+                </>
+              ) : (
+                <>
+                  <ShoppingBag className="h-5 w-5" />
+                  Entrar na Loja Agora
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Card de Oferta Especial */}
+          <div className="card-legal rounded-2xl p-6 mb-8 text-center relative overflow-hidden animate-scale-in max-w-md mx-auto">
+            <div className="absolute inset-0 gradient-store opacity-10 animate-legal-shimmer"></div>
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🎉</span>
               </div>
-              <p className="text-xs font-medium">Materiais de Estudo</p>
-            </div>
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="w-8 h-8 bg-store-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-base">🖊️</span>
+              
+              <h3 className="text-xl font-bold mb-3 text-store-primary">
+                Oferta Exclusiva
+              </h3>
+              
+              <p className="text-base mb-4">
+                Ganhe <span className="text-store-primary text-xl font-bold">10% de desconto</span> na sua primeira compra!
+              </p>
+              
+              <div 
+                className="bg-green-600 text-white px-4 py-3 rounded-xl inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 mb-3"
+                onClick={handleCopyCoupon}
+              >
+                <code className="text-lg font-mono font-bold">WN7PR10</code>
+                {copiedCoupon ? (
+                  <Check className="h-5 w-5 animate-scale-in" />
+                ) : (
+                  <Copy className="h-5 w-5" />
+                )}
               </div>
-              <p className="text-xs font-medium">Produtos de Escritório</p>
+              
+              <p className="text-sm text-muted-foreground">
+                Toque no código para copiá-lo
+              </p>
             </div>
           </div>
 
-          {/* Footer info */}
-          <p className="text-xs text-center text-muted-foreground">
-            🔒 Compra segura • 📦 Entrega rápida • 💯 Produtos verificados
-          </p>
+          {/* Grid de Benefícios */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <div className="w-12 h-12 bg-community-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📚</span>
+              </div>
+              <h4 className="font-semibold mb-2">Livros Especializados</h4>
+              <p className="text-sm text-muted-foreground">Obras atualizadas dos melhores autores do Direito</p>
+            </div>
+            
+            <div className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="w-12 h-12 bg-premium-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📝</span>
+              </div>
+              <h4 className="font-semibold mb-2">Materiais de Estudo</h4>
+              <p className="text-sm text-muted-foreground">Resumos, mapas mentais e guias práticos</p>
+            </div>
+            
+            <div className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="w-12 h-12 bg-store-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🖊️</span>
+              </div>
+              <h4 className="font-semibold mb-2">Produtos de Escritório</h4>
+              <p className="text-sm text-muted-foreground">Materiais profissionais para advogados</p>
+            </div>
+          </div>
+
+          {/* Footer com Garantias */}
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground bg-card/30 rounded-xl p-4 backdrop-blur-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-green-500">🔒</span>
+              <span>Compra 100% Segura</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-blue-500">📦</span>
+              <span>Entrega Rápida</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-yellow-500">💯</span>
+              <span>Produtos Verificados</span>
+            </div>
+          </div>
         </div>
       ) : (
         /* Iframe da Loja */
