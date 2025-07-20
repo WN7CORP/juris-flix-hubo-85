@@ -6,20 +6,20 @@ export const ProductCarousel = () => {
   const { data: produtos, isLoading } = useProdutos();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-scroll mais lento e suave
+  // Auto-scroll contínuo e suave
   useEffect(() => {
     if (!produtos || produtos.length === 0) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % produtos.length);
-    }, 4000); // 4 segundos para movimento mais lento
+    }, 3000); // 3 segundos para transição suave
 
     return () => clearInterval(interval);
   }, [produtos]);
 
   if (isLoading) {
     return (
-      <div className="w-full h-48 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
+      <div className="w-full h-56 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-store-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
           <p className="text-sm text-muted-foreground">Carregando produtos incríveis...</p>
@@ -30,17 +30,14 @@ export const ProductCarousel = () => {
 
   if (!produtos || produtos.length === 0) {
     return (
-      <div className="w-full h-48 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
+      <div className="w-full h-56 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
         <p className="text-sm text-muted-foreground">Produtos em breve...</p>
       </div>
     );
   }
 
-  // Duplicar produtos para efeito infinito mais suave
-  const extendedProdutos = [...produtos, ...produtos, ...produtos];
-
   return (
-    <div className="w-full overflow-hidden rounded-2xl bg-gradient-to-r from-store-primary/5 to-premium-primary/5 shadow-2xl border">
+    <div className="w-full bg-gradient-to-r from-store-primary/5 to-premium-primary/5 rounded-2xl shadow-2xl border overflow-hidden">
       {/* Título do Carrossel */}
       <div className="text-center py-6 bg-gradient-to-r from-store-primary/10 to-premium-primary/10">
         <h2 className="text-2xl font-bold gradient-text-legal mb-2">
@@ -51,26 +48,30 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Imagens */}
-      <div className="relative h-32 overflow-hidden">
+      {/* Carrossel de Livros */}
+      <div className="relative h-48 overflow-hidden bg-gradient-to-r from-slate-800 to-slate-900">
         <div 
           className="flex transition-transform duration-1000 ease-in-out h-full"
           style={{
-            transform: `translateX(-${(currentIndex * 100) / 5}%)`,
-            width: `${extendedProdutos.length * 20}%`
+            transform: `translateX(-${currentIndex * (100 / 5)}%)`,
+            width: `${produtos.length * 20}%`
           }}
         >
-          {extendedProdutos.map((produto, index) => (
+          {produtos.map((produto, index) => (
             <div
-              key={`${produto.id}-${index}`}
-              className="flex-shrink-0 px-2 h-full"
-              style={{ width: `${100 / extendedProdutos.length}%` }}
+              key={produto.id}
+              className="flex-shrink-0 h-full flex items-center justify-center px-3"
+              style={{ width: `${100 / produtos.length}%` }}
             >
-              <div className="relative group h-full">
+              <div className="relative group h-44 w-32 mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
-                  className="w-full h-full object-cover rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-white/20"
+                  style={{
+                    aspectRatio: '3/4', // Proporção típica de livro
+                    objectFit: 'cover'
+                  }}
                   onError={(e) => {
                     e.currentTarget.src = '/placeholder.svg';
                   }}
@@ -95,7 +96,7 @@ export const ProductCarousel = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex % produtos.length
+              index === currentIndex
                 ? 'bg-store-primary shadow-lg scale-125'
                 : 'bg-gray-300 hover:bg-gray-400'
             }`}
