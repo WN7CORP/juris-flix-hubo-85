@@ -51,27 +51,28 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Imagens - Mostra apenas imagens disponíveis */}
-      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-        <div className="flex h-full px-2 sm:px-4 gap-2 sm:gap-4">
+      {/* Carrossel de Imagens - Formato capa de livro */}
+      <div className="relative h-80 sm:h-96 md:h-[420px] overflow-hidden">
+        <div className="flex h-full px-4 sm:px-6 gap-4 sm:gap-6">
           {produtos.map((produto, index) => (
             <div
               key={produto.id}
-              className={`flex-shrink-0 transition-transform duration-1000 ease-in-out ${
+              className={`flex-shrink-0 transition-all duration-1000 ease-in-out ${
                 index === currentIndex ? 'opacity-100 scale-100' : 'opacity-70 scale-95'
               }`}
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
                 width: `${100 / produtos.length}%`,
-                minWidth: '200px',
-                maxWidth: '300px'
+                minWidth: '180px',
+                maxWidth: '240px'
               }}
             >
-              <div className="relative group h-full w-full max-w-[250px] mx-auto">
+              <div className="relative group h-full w-full max-w-[200px] mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
                   className="w-full h-full object-cover rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 aspect-[3/4]"
+                  style={{ aspectRatio: '3/4' }}
                   onError={(e) => {
                     console.log('Erro ao carregar imagem:', produto.produtos);
                     e.currentTarget.src = '/placeholder.svg';

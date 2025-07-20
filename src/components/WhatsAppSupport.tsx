@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { MessageCircle, X, Phone } from 'lucide-react';
+import { X, Phone } from 'lucide-react';
 
 const messageOptions = [
   {
@@ -43,13 +43,17 @@ export const WhatsAppSupport = () => {
 
   return (
     <>
-      {/* Botão Flutuante */}
+      {/* Botão Flutuante com novo logo */}
       <button
         onClick={() => setIsModalOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse z-50"
         aria-label="Suporte WhatsApp"
       >
-        <MessageCircle className="h-7 w-7" />
+        <img 
+          src="https://imgur.com/bqSqrgT.png" 
+          alt="WhatsApp" 
+          className="h-8 w-8"
+        />
       </button>
 
       {/* Modal de Suporte */}
@@ -67,11 +71,15 @@ export const WhatsAppSupport = () => {
               
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6" />
+                  <img 
+                    src="https://imgur.com/bqSqrgT.png" 
+                    alt="WhatsApp" 
+                    className="h-6 w-6"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Suporte Loja de Direito</h3>
-                  <p className="text-white/90 text-sm">Escolha o assunto da sua mensagem</p>
+                  <p className="text-white/90 text-sm">Escolha o tipo de mensagem para enviar</p>
                 </div>
               </div>
             </div>

@@ -171,7 +171,7 @@ export const Loja = () => {
           </div>
 
           {/* Footer com Garantias */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground bg-card/30 rounded-xl p-4 backdrop-blur-sm">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground bg-card/30 rounded-xl p-4 backdrop-blur-sm mb-6">
             <div className="flex items-center gap-2">
               <span className="text-green-500">🔒</span>
               <span>Compra 100% Segura</span>
@@ -183,6 +183,34 @@ export const Loja = () => {
             <div className="flex items-center gap-2">
               <span className="text-yellow-500">💯</span>
               <span>Produtos Verificados</span>
+            </div>
+          </div>
+
+          {/* Seção Mercado Livre */}
+          <div className="text-center bg-gradient-to-r from-yellow-500/10 to-blue-500/10 rounded-xl p-6 border">
+            <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <span className="text-2xl">🛒</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 gradient-text-legal">
+              Compras via Mercado Livre
+            </h3>
+            <p className="text-muted-foreground mb-4 max-w-2xl mx-auto">
+              Todas as nossas compras são processadas através do <strong>Mercado Livre</strong>, 
+              garantindo total segurança, proteção ao comprador e entrega confiável em todo o Brasil.
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">✅</span>
+                <span>Mercado Pago</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">🏆</span>
+                <span>Mercado Líder</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-500">⭐</span>
+                <span>Avaliações Verificadas</span>
+              </div>
             </div>
           </div>
         </div>
