@@ -3,6 +3,7 @@ import { ArrowLeft, ShoppingBag, Copy, Check } from 'lucide-react';
 import { useNavigation } from '@/context/NavigationContext';
 import { useState } from 'react';
 import { toast } from '@/hooks/use-toast';
+import { ProductCarousel } from './ProductCarousel';
 
 export const Loja = () => {
   const { setCurrentFunction } = useNavigation();
@@ -66,35 +67,35 @@ export const Loja = () => {
 
       {showIntro ? (
         /* Tela de Introdução Compacta */
-        <div className="container mx-auto px-4 py-6 max-w-2xl">
+        <div className="container mx-auto px-4 py-4 max-w-2xl">
           {/* Header com ícone */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-4">
             <div className="gradient-store w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center animate-store-glow">
               <ShoppingBag className="h-6 w-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold mb-2 gradient-text-legal">
+            <h2 className="text-xl font-bold mb-2 gradient-text-legal">
               Produtos Selecionados para Seus Estudos
             </h2>
           </div>
 
           {/* Card do Desconto e Botão - Seção Principal */}
-          <div className="card-legal rounded-xl p-6 mb-6 text-center relative overflow-hidden animate-scale-in">
+          <div className="card-legal rounded-xl p-4 mb-4 text-center relative overflow-hidden animate-scale-in">
             <div className="absolute inset-0 gradient-store opacity-10 animate-legal-shimmer"></div>
             <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-3 text-store-primary">
+              <h3 className="text-lg font-bold mb-3 text-store-primary">
                 🎉 Oferta Exclusiva para Usuários do App!
               </h3>
               
               {/* Desconto e Cupom */}
-              <div className="bg-store-primary/10 border border-store-primary/30 rounded-lg p-4 mb-4 animate-premium-glow">
-                <p className="text-lg font-semibold mb-2">
-                  Ganhe <span className="text-store-primary text-xl font-bold">10% de desconto</span> na sua primeira compra!
+              <div className="bg-store-primary/10 border border-store-primary/30 rounded-lg p-3 mb-3 animate-premium-glow">
+                <p className="text-base font-semibold mb-2">
+                  Ganhe <span className="text-store-primary text-lg font-bold">10% de desconto</span> na sua primeira compra!
                 </p>
                 <div 
-                  className="bg-green-600 text-white px-4 py-2 rounded-lg inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
+                  className="bg-green-600 text-white px-3 py-2 rounded-lg inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
                   onClick={handleCopyCoupon}
                 >
-                  <code className="text-base font-mono font-bold">WN7PR10</code>
+                  <code className="text-sm font-mono font-bold">WN7PR10</code>
                   {copiedCoupon ? (
                     <Check className="h-4 w-4 animate-scale-in" />
                   ) : (
@@ -110,16 +111,16 @@ export const Loja = () => {
               <button
                 onClick={handleEnterStore}
                 disabled={isLoading}
-                className="btn-store px-6 py-3 rounded-xl text-base font-semibold inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse w-full justify-center"
+                className="btn-store px-5 py-2.5 rounded-xl text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse w-full justify-center"
               >
                 {isLoading ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     Carregando...
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="h-5 w-5" />
+                    <ShoppingBag className="h-4 w-4" />
                     Entrar na Loja de Direito
                   </>
                 )}
@@ -127,23 +128,28 @@ export const Loja = () => {
             </div>
           </div>
 
+          {/* Carrossel de Produtos */}
+          <div className="mb-4">
+            <ProductCarousel />
+          </div>
+
           {/* Benefícios Compactos */}
-          <div className="grid grid-cols-3 gap-4 mb-4">
+          <div className="grid grid-cols-3 gap-3 mb-3">
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="w-10 h-10 bg-community-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">📚</span>
+              <div className="w-8 h-8 bg-community-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-base">📚</span>
               </div>
               <p className="text-xs font-medium">Livros Especializados</p>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="w-10 h-10 bg-premium-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">📝</span>
+              <div className="w-8 h-8 bg-premium-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-base">📝</span>
               </div>
               <p className="text-xs font-medium">Materiais de Estudo</p>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="w-10 h-10 bg-store-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-lg">🖊️</span>
+              <div className="w-8 h-8 bg-store-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-base">🖊️</span>
               </div>
               <p className="text-xs font-medium">Produtos de Escritório</p>
             </div>

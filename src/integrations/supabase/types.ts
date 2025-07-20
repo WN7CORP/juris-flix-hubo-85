@@ -2157,6 +2157,21 @@ export type Database = {
         }
         Relationships: []
       }
+      produtos: {
+        Row: {
+          id: number
+          produtos: string | null
+        }
+        Insert: {
+          id?: number
+          produtos?: string | null
+        }
+        Update: {
+          id?: number
+          produtos?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           correct_answers: number | null
