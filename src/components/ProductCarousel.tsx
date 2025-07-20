@@ -12,14 +12,14 @@ export const ProductCarousel = () => {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % produtos.length);
-    }, 3000); // 3 segundos para transição suave
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [produtos]);
 
   if (isLoading) {
     return (
-      <div className="w-full h-56 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
+      <div className="w-full h-64 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-store-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
           <p className="text-sm text-muted-foreground">Carregando produtos incríveis...</p>
@@ -30,7 +30,7 @@ export const ProductCarousel = () => {
 
   if (!produtos || produtos.length === 0) {
     return (
-      <div className="w-full h-56 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
+      <div className="w-full h-64 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
         <p className="text-sm text-muted-foreground">Produtos em breve...</p>
       </div>
     );
@@ -39,7 +39,7 @@ export const ProductCarousel = () => {
   return (
     <div className="w-full bg-gradient-to-r from-store-primary/5 to-premium-primary/5 rounded-2xl shadow-2xl border overflow-hidden">
       {/* Título do Carrossel */}
-      <div className="text-center py-6 bg-gradient-to-r from-store-primary/10 to-premium-primary/10">
+      <div className="text-center py-4 bg-gradient-to-r from-store-primary/10 to-premium-primary/10">
         <h2 className="text-2xl font-bold gradient-text-legal mb-2">
           📚 Nossos Produtos em Destaque
         </h2>
@@ -48,35 +48,35 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Livros */}
-      <div className="relative h-48 overflow-hidden bg-gradient-to-r from-slate-800 to-slate-900">
+      {/* Carrossel de Livros - Fundo claro */}
+      <div className="relative h-56 overflow-hidden bg-white/50">
         <div 
-          className="flex transition-transform duration-1000 ease-in-out h-full"
+          className="flex transition-transform duration-1000 ease-in-out h-full items-center"
           style={{
-            transform: `translateX(-${currentIndex * (100 / 5)}%)`,
-            width: `${produtos.length * 20}%`
+            transform: `translateX(-${currentIndex * (100 / Math.min(produtos.length, 5))}%)`,
+            width: `${Math.max(produtos.length, 5) * 20}%`
           }}
         >
           {produtos.map((produto, index) => (
             <div
               key={produto.id}
-              className="flex-shrink-0 h-full flex items-center justify-center px-3"
-              style={{ width: `${100 / produtos.length}%` }}
+              className="flex-shrink-0 h-full flex items-center justify-center px-4"
+              style={{ width: `${100 / Math.max(produtos.length, 5)}%` }}
             >
-              <div className="relative group h-44 w-32 mx-auto">
+              <div className="relative group h-48 w-36 mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
-                  className="w-full h-full object-cover rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-white/20"
+                  className="w-full h-full object-cover rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-gray-200"
                   style={{
-                    aspectRatio: '3/4', // Proporção típica de livro
+                    aspectRatio: '3/4',
                     objectFit: 'cover'
                   }}
                   onError={(e) => {
                     e.currentTarget.src = '/placeholder.svg';
                   }}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
                   <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2">
                       <span className="text-sm font-bold">Produto #{produto.id}</span>

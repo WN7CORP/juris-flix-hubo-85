@@ -4,6 +4,7 @@ import { useNavigation } from '@/context/NavigationContext';
 import { useState } from 'react';
 import { toast } from '@/hooks/use-toast';
 import { ProductCarousel } from './ProductCarousel';
+import { WhatsAppSupport } from './WhatsAppSupport';
 
 export const Loja = () => {
   const { setCurrentFunction } = useNavigation();
@@ -88,21 +89,21 @@ export const Loja = () => {
               Produtos especializados selecionados para potencializar seus estudos jurídicos
             </p>
 
-            {/* Botão Principal de Destaque */}
+            {/* Botão Principal de Destaque - Maior e mais chamativo */}
             <button
               onClick={handleEnterStore}
               disabled={isLoading}
-              className="btn-store px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse shadow-2xl transform hover:scale-105 transition-all duration-300 mb-8"
+              className="btn-store px-12 py-5 rounded-2xl text-xl font-bold inline-flex items-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse shadow-2xl transform hover:scale-110 transition-all duration-300 mb-8 border-2 border-white/20"
             >
               {isLoading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   Carregando Loja...
                 </>
               ) : (
                 <>
-                  <ShoppingBag className="h-5 w-5" />
-                  Entrar na Loja Agora
+                  <ShoppingBag className="h-6 w-6" />
+                  🚀 Entrar na Loja Agora
                 </>
               )}
             </button>
@@ -197,6 +198,9 @@ export const Loja = () => {
           />
         </div>
       )}
+
+      {/* Componente de Suporte WhatsApp Flutuante */}
+      <WhatsAppSupport />
     </div>
   );
 };
