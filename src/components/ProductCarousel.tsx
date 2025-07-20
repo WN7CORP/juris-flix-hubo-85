@@ -12,14 +12,14 @@ export const ProductCarousel = () => {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % produtos.length);
-    }, 4000); // 4 segundos para movimento mais lento
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [produtos]);
 
   if (isLoading) {
     return (
-      <div className="w-full h-48 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
+      <div className="w-full h-64 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center animate-pulse shadow-lg">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-store-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
           <p className="text-sm text-muted-foreground">Carregando produtos incríveis...</p>
@@ -30,14 +30,11 @@ export const ProductCarousel = () => {
 
   if (!produtos || produtos.length === 0) {
     return (
-      <div className="w-full h-48 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
+      <div className="w-full h-64 bg-gradient-to-r from-store-primary/10 to-premium-primary/10 rounded-2xl flex items-center justify-center shadow-lg">
         <p className="text-sm text-muted-foreground">Produtos em breve...</p>
       </div>
     );
   }
-
-  // Duplicar produtos para efeito infinito mais suave
-  const extendedProdutos = [...produtos, ...produtos, ...produtos];
 
   return (
     <div className="w-full overflow-hidden rounded-2xl bg-gradient-to-r from-store-primary/5 to-premium-primary/5 shadow-2xl border">
@@ -51,31 +48,33 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Imagens */}
-      <div className="relative h-32 overflow-hidden">
+      {/* Carrossel de Imagens - Altura aumentada para mostrar livros adequadamente */}
+      <div className="relative h-64 overflow-hidden">
         <div 
-          className="flex transition-transform duration-1000 ease-in-out h-full"
+          className="flex transition-transform duration-1000 ease-in-out h-full gap-4 px-4"
           style={{
-            transform: `translateX(-${(currentIndex * 100) / 5}%)`,
-            width: `${extendedProdutos.length * 20}%`
+            transform: `translateX(-${currentIndex * (100 / Math.min(produtos.length, 4))}%)`,
+            width: `${Math.max(produtos.length, 4) * 25}%`
           }}
         >
-          {extendedProdutos.map((produto, index) => (
+          {produtos.map((produto, index) => (
             <div
-              key={`${produto.id}-${index}`}
-              className="flex-shrink-0 px-2 h-full"
-              style={{ width: `${100 / extendedProdutos.length}%` }}
+              key={produto.id}
+              className="flex-shrink-0 h-full"
+              style={{ width: `${100 / Math.max(produtos.length, 4)}%` }}
             >
-              <div className="relative group h-full">
+              <div className="relative group h-full max-w-[200px] mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
                   className="w-full h-full object-cover rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                  style={{ aspectRatio: '3/4' }}
                   onError={(e) => {
+                    console.log('Erro ao carregar imagem:', produto.produtos);
                     e.currentTarget.src = '/placeholder.svg';
                   }}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
                   <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2">
                       <span className="text-sm font-bold">Produto #{produto.id}</span>
@@ -95,7 +94,7 @@ export const ProductCarousel = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex % produtos.length
+              index === currentIndex
                 ? 'bg-store-primary shadow-lg scale-125'
                 : 'bg-gray-300 hover:bg-gray-400'
             }`}

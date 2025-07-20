@@ -4,6 +4,7 @@ import { useNavigation } from '@/context/NavigationContext';
 import { useState } from 'react';
 import { toast } from '@/hooks/use-toast';
 import { ProductCarousel } from './ProductCarousel';
+import { WhatsAppSupport } from './WhatsAppSupport';
 
 export const Loja = () => {
   const { setCurrentFunction } = useNavigation();
@@ -197,6 +198,9 @@ export const Loja = () => {
           />
         </div>
       )}
+
+      {/* Componente de Suporte WhatsApp Flutuante */}
+      <WhatsAppSupport />
     </div>
   );
 };
