@@ -1,19 +1,15 @@
-
 import { ReactNode, useState } from 'react';
 import { DesktopSidebar } from '@/components/DesktopSidebar';
 import { DesktopHeader } from '@/components/DesktopHeader';
 import { FooterMenu } from '@/components/FooterMenu';
-import { AppRatingPrompt } from '@/components/AppRatingPrompt';
-
 interface DesktopLayoutProps {
   children: ReactNode;
 }
-
-export const DesktopLayout = ({ children }: DesktopLayoutProps) => {
+export const DesktopLayout = ({
+  children
+}: DesktopLayoutProps) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-background flex">
+  return <div className="min-h-screen bg-background flex">
       {/* Desktop Sidebar */}
       <DesktopSidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
       
@@ -34,9 +30,5 @@ export const DesktopLayout = ({ children }: DesktopLayoutProps) => {
           {children}
         </main>
       </div>
-      
-      {/* App Rating Prompt */}
-      <AppRatingPrompt />
-    </div>
-  );
+    </div>;
 };
