@@ -109,12 +109,16 @@ export const Loja = () => {
             </button>
           </div>
 
-          {/* Card de Oferta Especial */}
+          {/* Card de Oferta Especial com Logo do Mercado Livre */}
           <div className="card-legal rounded-2xl p-6 mb-8 text-center relative overflow-hidden animate-scale-in max-w-md mx-auto">
             <div className="absolute inset-0 gradient-store opacity-10 animate-legal-shimmer"></div>
             <div className="relative z-10">
-              <div className="w-12 h-12 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">🎉</span>
+              <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden">
+                <img 
+                  src="https://s2.glbimg.com/Bu6upvmSg6SRv0za635uXphThKo=/620x430/e.glbimg.com/og/ed/f/original/2020/03/28/mercado-livre.jpg"
+                  alt="Mercado Livre"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               <h3 className="text-xl font-bold mb-3 text-store-primary">

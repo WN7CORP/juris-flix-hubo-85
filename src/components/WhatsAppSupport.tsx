@@ -43,10 +43,10 @@ export const WhatsAppSupport = () => {
 
   return (
     <>
-      {/* Botão Flutuante com novo logo */}
+      {/* Botão Flutuante sem animação de piscar */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 animate-pulse z-50"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-50"
         aria-label="Suporte WhatsApp"
       >
         <img 

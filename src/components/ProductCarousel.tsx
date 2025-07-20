@@ -51,8 +51,8 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Imagens - Formato capa de livro */}
-      <div className="relative h-80 sm:h-96 md:h-[420px] overflow-hidden">
+      {/* Carrossel de Imagens - Formato capa de livro, altura reduzida */}
+      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
         <div className="flex h-full px-4 sm:px-6 gap-4 sm:gap-6">
           {produtos.map((produto, index) => (
             <div
@@ -63,11 +63,11 @@ export const ProductCarousel = () => {
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
                 width: `${100 / produtos.length}%`,
-                minWidth: '180px',
-                maxWidth: '240px'
+                minWidth: '140px',
+                maxWidth: '180px'
               }}
             >
-              <div className="relative group h-full w-full max-w-[200px] mx-auto">
+              <div className="relative group h-full w-full max-w-[160px] mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
