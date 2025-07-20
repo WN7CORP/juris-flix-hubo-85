@@ -65,107 +65,94 @@ export const Loja = () => {
       </header>
 
       {showIntro ? (
-        /* Tela de Introdução */
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-          <div className="text-center mb-8 animate-fade-in">
-            <div className="gradient-store w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center animate-store-glow">
-              <ShoppingBag className="h-8 w-8 text-white icon-float-gentle" />
+        /* Tela de Introdução Compacta */
+        <div className="container mx-auto px-4 py-6 max-w-2xl">
+          {/* Header com ícone */}
+          <div className="text-center mb-6">
+            <div className="gradient-store w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center animate-store-glow">
+              <ShoppingBag className="h-6 w-6 text-white" />
             </div>
-            <h2 className="text-3xl font-bold mb-4 gradient-text-legal">
+            <h2 className="text-2xl font-bold mb-2 gradient-text-legal">
               Produtos Selecionados para Seus Estudos
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Descobrimos os melhores produtos jurídicos para potencializar seu aprendizado. 
-              Cada item foi cuidadosamente selecionado para agregar valor real aos seus estudos de Direito.
-            </p>
           </div>
 
-          {/* Card do Desconto */}
-          <div className="card-legal rounded-xl p-8 mb-8 text-center relative overflow-hidden animate-scale-in">
+          {/* Card do Desconto e Botão - Seção Principal */}
+          <div className="card-legal rounded-xl p-6 mb-6 text-center relative overflow-hidden animate-scale-in">
             <div className="absolute inset-0 gradient-store opacity-10 animate-legal-shimmer"></div>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4 text-store-primary">
+              <h3 className="text-xl font-bold mb-3 text-store-primary">
                 🎉 Oferta Exclusiva para Usuários do App!
               </h3>
-              <div className="bg-store-primary/10 border border-store-primary/30 rounded-lg p-6 mb-4 animate-premium-glow">
-                <p className="text-xl font-semibold mb-2">
-                  Ganhe <span className="text-store-primary text-2xl font-bold">10% de desconto</span> na sua primeira compra!
+              
+              {/* Desconto e Cupom */}
+              <div className="bg-store-primary/10 border border-store-primary/30 rounded-lg p-4 mb-4 animate-premium-glow">
+                <p className="text-lg font-semibold mb-2">
+                  Ganhe <span className="text-store-primary text-xl font-bold">10% de desconto</span> na sua primeira compra!
                 </p>
                 <div 
-                  className="bg-store-primary text-white px-6 py-3 rounded-lg inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
+                  className="bg-store-primary text-white px-4 py-2 rounded-lg inline-flex items-center gap-2 cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
                   onClick={handleCopyCoupon}
                 >
-                  <code className="text-lg font-mono font-bold">WN7PR10</code>
+                  <code className="text-base font-mono font-bold">WN7PR10</code>
                   {copiedCoupon ? (
-                    <Check className="h-5 w-5 animate-scale-in" />
+                    <Check className="h-4 w-4 animate-scale-in" />
                   ) : (
-                    <Copy className="h-5 w-5 icon-hover-bounce" />
+                    <Copy className="h-4 w-4" />
                   )}
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Clique no código para copiá-lo automaticamente
+                <p className="text-xs text-muted-foreground mt-2">
+                  Clique no código para copiá-lo
                 </p>
               </div>
-              <p className="text-store-primary font-medium">
-                ✨ Cupom válido apenas para usuários do nosso aplicativo
-              </p>
+
+              {/* Botão Principal */}
+              <button
+                onClick={handleEnterStore}
+                disabled={isLoading}
+                className="btn-store px-6 py-3 rounded-xl text-base font-semibold inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse w-full justify-center"
+              >
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Carregando...
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag className="h-5 w-5" />
+                    Entrar na Loja de Direito
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
-          {/* Benefícios */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="card-legal p-6 text-center animate-fade-in" style={{animationDelay: '0.1s'}}>
-              <div className="w-12 h-12 bg-community-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📚</span>
+          {/* Benefícios Compactos */}
+          <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="text-center animate-fade-in" style={{animationDelay: '0.1s'}}>
+              <div className="w-10 h-10 bg-community-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-lg">📚</span>
               </div>
-              <h4 className="font-semibold mb-2">Livros Especializados</h4>
-              <p className="text-sm text-muted-foreground">
-                Obras de renomados juristas para aprofundar seus conhecimentos
-              </p>
+              <p className="text-xs font-medium">Livros Especializados</p>
             </div>
-            <div className="card-legal p-6 text-center animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <div className="w-12 h-12 bg-premium-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚖️</span>
+            <div className="text-center animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <div className="w-10 h-10 bg-premium-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-lg">⚖️</span>
               </div>
-              <h4 className="font-semibold mb-2">Materiais de Estudo</h4>
-              <p className="text-sm text-muted-foreground">
-                Apostilas, códigos comentados e resumos práticos
-              </p>
+              <p className="text-xs font-medium">Materiais de Estudo</p>
             </div>
-            <div className="card-legal p-6 text-center animate-fade-in" style={{animationDelay: '0.3s'}}>
-              <div className="w-12 h-12 bg-store-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+            <div className="text-center animate-fade-in" style={{animationDelay: '0.3s'}}>
+              <div className="w-10 h-10 bg-store-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span className="text-lg">🎯</span>
               </div>
-              <h4 className="font-semibold mb-2">Cursos Online</h4>
-              <p className="text-sm text-muted-foreground">
-                Treinamentos específicos para concursos e carreira jurídica
-              </p>
+              <p className="text-xs font-medium">Cursos Online</p>
             </div>
           </div>
 
-          {/* Botão Principal */}
-          <div className="text-center">
-            <button
-              onClick={handleEnterStore}
-              disabled={isLoading}
-              className="btn-store px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed animate-glow-pulse"
-            >
-              {isLoading ? (
-                <>
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Carregando...
-                </>
-              ) : (
-                <>
-                  <ShoppingBag className="h-6 w-6 icon-hover-bounce" />
-                  Entrar na Loja de Direito
-                </>
-              )}
-            </button>
-            <p className="text-sm text-muted-foreground mt-4">
-              🔒 Compra segura • 📦 Entrega rápida • 💯 Produtos verificados
-            </p>
-          </div>
+          {/* Footer info */}
+          <p className="text-xs text-center text-muted-foreground">
+            🔒 Compra segura • 📦 Entrega rápida • 💯 Produtos verificados
+          </p>
         </div>
       ) : (
         /* Iframe da Loja */
