@@ -2,6 +2,7 @@
 import { ReactNode, useState } from 'react';
 import { FooterMenu } from '@/components/FooterMenu';
 import { MobileHeader } from '@/components/MobileHeader';
+import { AppRatingPrompt } from '@/components/AppRatingPrompt';
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -24,6 +25,9 @@ export const MobileLayout = ({ children }: MobileLayoutProps) => {
       
       {/* Bottom Navigation - responsivo */}
       <FooterMenu isVisible={!sidebarOpen} />
+      
+      {/* App Rating Prompt */}
+      <AppRatingPrompt />
     </div>
   );
 };
