@@ -11,7 +11,10 @@ export const ProductCarousel = () => {
     if (!produtos || produtos.length === 0) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % produtos.length);
+      setCurrentIndex((prevIndex) => {
+        // Quando chegar no final, volta para o início
+        return prevIndex >= produtos.length - 1 ? 0 : prevIndex + 1;
+      });
     }, 4000);
 
     return () => clearInterval(interval);
@@ -48,21 +51,23 @@ export const ProductCarousel = () => {
         </p>
       </div>
       
-      {/* Carrossel de Imagens - Responsivo */}
+      {/* Carrossel de Imagens - Mostra apenas imagens disponíveis */}
       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-        <div 
-          className="flex transition-transform duration-1000 ease-in-out h-full gap-2 sm:gap-4 px-2 sm:px-4"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / Math.min(produtos.length, window.innerWidth < 640 ? 2 : window.innerWidth < 768 ? 3 : 4))}%)`,
-            width: `${Math.max(produtos.length, window.innerWidth < 640 ? 2 : window.innerWidth < 768 ? 3 : 4) * (100 / (window.innerWidth < 640 ? 2 : window.innerWidth < 768 ? 3 : 4))}%`
-          }}
-        >
+        <div className="flex h-full px-2 sm:px-4 gap-2 sm:gap-4">
           {produtos.map((produto, index) => (
             <div
               key={produto.id}
-              className="flex-shrink-0 h-full w-32 sm:w-40 md:w-48"
+              className={`flex-shrink-0 transition-transform duration-1000 ease-in-out ${
+                index === currentIndex ? 'opacity-100 scale-100' : 'opacity-70 scale-95'
+              }`}
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+                width: `${100 / produtos.length}%`,
+                minWidth: '200px',
+                maxWidth: '300px'
+              }}
             >
-              <div className="relative group h-full mx-auto">
+              <div className="relative group h-full w-full max-w-[250px] mx-auto">
                 <img
                   src={produto.produtos}
                   alt={`Produto ${produto.id}`}
@@ -85,7 +90,7 @@ export const ProductCarousel = () => {
         </div>
       </div>
       
-      {/* Indicadores */}
+      {/* Indicadores - Mostram apenas produtos disponíveis */}
       <div className="flex justify-center py-3 sm:py-4 space-x-1 sm:space-x-2">
         {produtos.map((_, index) => (
           <button
